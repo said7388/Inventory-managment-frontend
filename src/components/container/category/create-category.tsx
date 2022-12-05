@@ -23,9 +23,7 @@ const CreateCategory = ({ closeModal }: any) => {
 
   const createCategoryFunction = (data: any) => {
     createNewCategory({
-      data: {
-        name: data.category,
-      },
+      name: data.category,
     });
   };
 

@@ -77,17 +77,13 @@ export interface UpdateCategoryPops {
 }
 
 export interface CreateCategoryBody {
-  data: {
-    name: string;
-  };
+  name: string;
 }
 
 export interface UpdateCategoryBody {
   id: number;
   body: {
-    data: {
-      name: string;
-    };
+    name: string;
   };
 }
 

@@ -30,9 +30,7 @@ const UpdateCategory = ({ closeModal, currentCategory }: any) => {
     updateCategory({
       id: currentCategory.id,
       body: {
-        data: {
-          name: data.category,
-        },
+        name: data.category,
       },
     });
   };

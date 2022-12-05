@@ -31,7 +31,7 @@ const Category = () => {
     setUpdateModalOpen(true);
     const category = {
       id: data?.id,
-      name: data?.attributes?.name,
+      name: data?.name,
     };
     setCurrentCategory(category);
   };
@@ -61,7 +61,7 @@ const Category = () => {
         handleDeleteCategory={handleDeleteCategory}
         openEditModalFucntion={openEditModalFucntion}
         setModalOpen={setAddModalOpen}
-        categories={data?.data}
+        categories={data}
       />
       <Modal
         title='Create new category'
