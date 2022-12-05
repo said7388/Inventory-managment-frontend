@@ -14,7 +14,7 @@ const Input: React.FC<InputPops> = (props) => {
   return (
     <div className='w-full mt-2 mb-1  relative flex flex-col items-start justify-center'>
       <label
-        className='text-left py-1 text-sm font-medium uppercase'
+        className='text-left mt-4 mb-2 text-sm font-medium uppercase'
         htmlFor={name}>
         {title}
       </label>

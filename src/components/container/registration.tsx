@@ -7,7 +7,7 @@ import { useCreateUserMutation } from "../../redux/api/auth-api";
 import { RegistrationFormInputs } from "../../types";
 import RegistrationUI from "../ui/registration-ui";
 
-const schema = yup
+const registerSchema = yup
   .object({
     email: yup
       .string()
@@ -33,7 +33,7 @@ const Registration = () => {
     reset,
     formState: { errors },
   } = useForm<RegistrationFormInputs>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(registerSchema),
     defaultValues: {
       email: "",
       fullName: "",

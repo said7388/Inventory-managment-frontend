@@ -25,11 +25,11 @@ export interface CreateUserBody {
 }
 
 export interface InputPops extends InputHTMLAttributes<HTMLInputElement> {
-  register: any;
+  register?: any;
   name: string;
-  title: string;
-  errors: any;
-  placeholder: string | undefined;
+  title?: string;
+  errors?: any;
+  placeholder?: string | undefined;
   type?: string | undefined;
 }
 
@@ -60,4 +60,51 @@ export interface RegistrationUiPops {
 
 export interface SidebarUiPops {
   handleLogout: () => void;
+}
+
+export interface CreateCategoryPops {
+  register?: any;
+  errors?: any;
+  handleSubmit: Function;
+  createCategory: Function;
+}
+
+export interface UpdateCategoryPops {
+  register?: any;
+  errors?: any;
+  handleSubmit: Function;
+  updateCategoryFunction: Function;
+}
+
+export interface CreateCategoryBody {
+  data: {
+    name: string;
+  };
+}
+
+export interface UpdateCategoryBody {
+  id: number;
+  body: {
+    data: {
+      name: string;
+    };
+  };
+}
+
+export interface ModalPops {
+  children?: React.ReactNode;
+  isOpen?: boolean;
+  title?: string;
+  closeModal?: () => void;
+}
+
+export interface ProfilePayload {
+  email: string;
+  id: number;
+  username: string;
+}
+
+export interface AuthState {
+  profile: {} | null;
+  token: string;
 }
