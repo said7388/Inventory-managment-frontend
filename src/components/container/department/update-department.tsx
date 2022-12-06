@@ -2,36 +2,36 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { categoryFormSchema } from "../../../model/schema";
-import { useUpdateCategoryMutation } from "../../../redux/api/category-api";
-import { UpdateCategoryPops } from "../../../types";
-import UpdateCategoryUI from "../../ui/category/update-category-ui";
+import { departmentFormSchema } from "../../../model/schema";
+import { useUpdateDepartmentMutation } from "../../../redux/api/department-api";
+import { UpdateDepartmentPops } from "../../../types";
+import UpdateDepartmentUI from "../../ui/department/update-department-ui";
 
-const UpdateCategory = ({
+const UpdateDepartment = ({
   closeModal,
-  currentCategory,
-}: UpdateCategoryPops) => {
+  currentDepartment,
+}: UpdateDepartmentPops) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(categoryFormSchema),
+    resolver: yupResolver(departmentFormSchema),
     defaultValues: {
-      category: currentCategory.name,
+      department: currentDepartment.name,
     },
   });
 
-  const [updateCategory, { error, isError, isSuccess }] =
-    useUpdateCategoryMutation();
+  const [updateDepartment, { error, isError, isSuccess }] =
+    useUpdateDepartmentMutation();
 
-  const updateCategoryFunction = (data: { category: string }) => {
-    updateCategory({
-      id: currentCategory.id,
+  const updateDepartmentFunction = (data: { department: string }) => {
+    updateDepartment({
+      id: currentDepartment.id,
       body: {
         data: {
-          name: data.category,
+          name: data.department,
         },
       },
     });
@@ -47,7 +47,7 @@ const UpdateCategory = ({
       });
     }
     if (isSuccess) {
-      toast.success("Update Category Successfully!", {
+      toast.success("Update Department Successfully!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -59,13 +59,13 @@ const UpdateCategory = ({
   }, [closeModal, error, isError, isSuccess, reset]);
 
   return (
-    <UpdateCategoryUI
+    <UpdateDepartmentUI
       register={register}
       handleSubmit={handleSubmit}
       errors={errors}
-      updateCategoryFunction={updateCategoryFunction}
+      updateDepartmentFunction={updateDepartmentFunction}
     />
   );
 };
 
-export default UpdateCategory;
+export default UpdateDepartment;

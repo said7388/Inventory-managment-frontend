@@ -69,11 +69,35 @@ export interface CreateCategoryPops {
   createCategory: Function;
 }
 
+export interface CreateDepartmentPops {
+  register?: any;
+  errors?: any;
+  handleSubmit: Function;
+  createDepartmentFunction: Function;
+}
+
 export interface UpdateCategoryPops {
+  closeModal: Function;
+  currentCategory: any;
+}
+
+export interface UpdateDepartmentPops {
+  closeModal: Function;
+  currentDepartment: any;
+}
+
+export interface UpdateCategoryUIPops {
   register?: any;
   errors?: any;
   handleSubmit: Function;
   updateCategoryFunction: Function;
+}
+
+export interface UpdateDepartmentUIPops {
+  register?: any;
+  errors?: any;
+  handleSubmit: Function;
+  updateDepartmentFunction: Function;
 }
 
 export interface CreateCategoryBody {
@@ -82,7 +106,22 @@ export interface CreateCategoryBody {
   };
 }
 
+export interface CreateDepartmtnBody {
+  data: {
+    name: string;
+  };
+}
+
 export interface UpdateCategoryBody {
+  id: number;
+  body: {
+    data: {
+      name: string;
+    };
+  };
+}
+
+export interface UpdateDepartmentBody {
   id: number;
   body: {
     data: {

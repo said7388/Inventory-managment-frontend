@@ -3,4 +3,5 @@ export const ROUTES = {
   HOME: "/",
   REGISTRATION: "/registration",
   CATEGORY: "/category",
+  DEPARTMENTS: "/department",
 };
