@@ -187,3 +187,23 @@ export interface ProductType {
     };
   };
 }
+
+export interface CreateProductBody {
+  data: {
+    name: string;
+    product_code: string;
+    brand: string;
+    details: string;
+    purchasedAt: string;
+    vendor: string;
+    usingBy: {
+      id: string;
+    };
+    department: {
+      id: string;
+    };
+    category: {
+      id: string;
+    };
+  };
+}

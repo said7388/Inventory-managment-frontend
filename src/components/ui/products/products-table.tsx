@@ -1,10 +1,25 @@
 import { AiOutlineEdit } from "react-icons/ai";
+import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { ProductType } from "../../../types";
 
-const ProductsTable = ({ products }: { products: ProductType[] }) => {
+const ProductsTable = ({
+  products,
+  setAddModalOpen,
+}: {
+  products: ProductType[];
+  setAddModalOpen: any;
+}) => {
   return (
-    <div className='overflow-x-auto relative shadow-md sm:rounded-lg'>
+    <div className='overflow-x-auto relative shadow-md sm:rounded-lg m-2 md:m-8'>
+      <div className='w-full flex justify-end mb-5'>
+        <button
+          onClick={() => setAddModalOpen(true)}
+          className='flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
+          <IoMdAddCircleOutline className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
+          <span className='ml-3'>Add New Product</span>
+        </button>
+      </div>
       <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
         <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
           <tr>

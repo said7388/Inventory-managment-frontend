@@ -40,9 +40,13 @@ export const authApi = createApi({
     }),
 
     getAllUser: builder.query({
-      query: () => `${API_ENDPOINTS.USER}?populate=%2A`,
+      query: (option) => `${API_ENDPOINTS.USER + option}`,
     }),
   }),
 });
 
-export const { useSigninUserMutation, useCreateUserMutation } = authApi;
+export const {
+  useSigninUserMutation,
+  useCreateUserMutation,
+  useGetAllUserQuery,
+} = authApi;
