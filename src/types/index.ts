@@ -13,6 +13,7 @@ export interface RegistrationFormInputs {
   username: string;
   password: string;
   confirm: string;
+  department: string;
 }
 
 export interface CreateUserBody {
@@ -22,6 +23,7 @@ export interface CreateUserBody {
   fullName: string;
   username: string;
   password: string;
+  department: string;
 }
 
 export interface InputPops extends InputHTMLAttributes<HTMLInputElement> {
@@ -56,6 +58,7 @@ export interface RegistrationUiPops {
   errors: any;
   handleSubmit: any;
   handleOnSubmit: any;
+  departments: any;
 }
 
 export interface SidebarUiPops {
@@ -69,18 +72,53 @@ export interface CreateCategoryPops {
   createCategory: Function;
 }
 
+export interface CreateDepartmentPops {
+  register?: any;
+  errors?: any;
+  handleSubmit: Function;
+  createDepartmentFunction: Function;
+}
+
 export interface UpdateCategoryPops {
+  closeModal: Function;
+  currentCategory: any;
+}
+
+export interface UpdateDepartmentPops {
+  closeModal: Function;
+  currentDepartment: any;
+}
+
+export interface UpdateCategoryUIPops {
   register?: any;
   errors?: any;
   handleSubmit: Function;
   updateCategoryFunction: Function;
 }
 
+export interface UpdateDepartmentUIPops {
+  register?: any;
+  errors?: any;
+  handleSubmit: Function;
+  updateDepartmentFunction: Function;
+}
+
 export interface CreateCategoryBody {
   name: string;
 }
 
+export interface CreateDepartmtnBody {
+  name: string;
+}
+
 export interface UpdateCategoryBody {
+  id: number;
+  body: {
+    name: string;
+  };
+}
+
+export interface UpdateDepartmentBody {
   id: number;
   body: {
     name: string;
@@ -103,4 +141,53 @@ export interface ProfilePayload {
 export interface AuthState {
   profile: {} | null;
   token: string;
+}
+
+export interface ProductType {
+  id: number;
+  attributes: {
+    name: string;
+    brand: string;
+    product_code: string;
+    vendor: string;
+    purchasedAt: string;
+    category: {
+      data: {
+        id: number;
+        attributes: {
+          name: string;
+        };
+      };
+    };
+    department: {
+      data: {
+        id: number;
+        attributes: {
+          name: string;
+        };
+      };
+    };
+    usingBy: {
+      data: {
+        id: number;
+        attributes: {
+          fullName: string;
+        };
+      };
+    };
+  };
+}
+
+export interface CreateProductBody {
+  data: {
+    name: string;
+    product_code: string;
+    brand: string;
+    details: string;
+    purchasedAt: string;
+    vendor: string;
+    usingBy: string;
+    department: string;
+    category: string;
+  };
 }

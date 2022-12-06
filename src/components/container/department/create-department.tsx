@@ -2,24 +2,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { categoryFormSchema } from "../../../model/schema";
-import { useCreateNewCategoryMutation } from "../../../redux/api/category-api";
-import CreateCategoryUI from "../../ui/category/create-category-ui";
+import { departmentFormSchema } from "../../../model/schema";
+import { useCreateNewDepartmentMutation } from "../../../redux/api/department-api";
+import CreateDepartmentUI from "../../ui/department/create-department-ui";
 
-const CreateCategory = ({ closeModal }: { closeModal: Function }) => {
+const CreateDepartment = ({ closeModal }: { closeModal: Function }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(categoryFormSchema) });
+  } = useForm({ resolver: yupResolver(departmentFormSchema) });
 
-  const [createNewCategory, { error, isError, isSuccess }] =
-    useCreateNewCategoryMutation();
+  const [createNewDepartment, { error, isError, isSuccess }] =
+    useCreateNewDepartmentMutation();
 
-  const createCategoryFunction = (data: { category: string }) => {
-    createNewCategory({
-      name: data.category,
+  const createDepartmentFunction = (data: { department: string }) => {
+    createNewDepartment({
+      name: data.department,
     });
   };
 
@@ -33,7 +33,7 @@ const CreateCategory = ({ closeModal }: { closeModal: Function }) => {
       });
     }
     if (isSuccess) {
-      toast.success("Create Category Successfully!", {
+      toast.success("Create Department Successfully!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -45,13 +45,13 @@ const CreateCategory = ({ closeModal }: { closeModal: Function }) => {
   }, [closeModal, error, isError, isSuccess, reset]);
 
   return (
-    <CreateCategoryUI
+    <CreateDepartmentUI
       register={register}
       handleSubmit={handleSubmit}
       errors={errors}
-      createCategory={createCategoryFunction}
+      createDepartmentFunction={createDepartmentFunction}
     />
   );
 };
 
-export default CreateCategory;
+export default CreateDepartment;

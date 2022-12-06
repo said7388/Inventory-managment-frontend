@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CreateUserBody, UserSignInBody } from "../../types";
+import { CreateProductBody } from "../../types";
 import { API_ENDPOINTS } from "../../utils/api-endpoints";
 import { RootState } from "../store";
 
 // Define a service using a base URL and expected endpoints
-export const authApi = createApi({
-  reducerPath: "authApi",
+export const productApi = createApi({
+  reducerPath: "productApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_API_URL,
     prepareHeaders: (headers, { getState, endpoint }) => {
@@ -17,36 +17,38 @@ export const authApi = createApi({
     },
     credentials: "include",
   }),
+  tagTypes: ["Products"],
 
   endpoints: (builder) => ({
-    signinUser: builder.mutation({
-      query: (body: UserSignInBody) => {
+    getAllProduct: builder.query({
+      query: () => `${API_ENDPOINTS.PRODUCTS}?populate=%2A`,
+      providesTags: ["Products"],
+    }),
+
+    createNewProduct: builder.mutation({
+      query: (body: CreateProductBody) => {
         return {
-          url: API_ENDPOINTS.LOGIN,
+          url: API_ENDPOINTS.PRODUCTS,
           method: "post",
           body,
         };
       },
+      invalidatesTags: ["Products"],
     }),
 
-    createUser: builder.mutation({
-      query: (body: CreateUserBody) => {
-        return {
-          url: API_ENDPOINTS.REGISTRATION,
-          method: "post",
-          body,
-        };
-      },
-    }),
-
-    getAllUser: builder.query({
-      query: (option) => `${API_ENDPOINTS.USER + option}`,
+    deleteProduct: builder.mutation({
+      query: (id) => ({
+        url: `${API_ENDPOINTS.PRODUCTS}/${id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Products"],
     }),
   }),
 });
 
 export const {
-  useSigninUserMutation,
-  useCreateUserMutation,
-  useGetAllUserQuery,
-} = authApi;
+  useGetAllProductQuery,
+  useDeleteProductMutation,
+  useCreateNewProductMutation,
+} = productApi;

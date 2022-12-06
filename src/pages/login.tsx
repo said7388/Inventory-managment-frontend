@@ -4,22 +4,12 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import * as yup from "yup";
 import LoginUI from "../components/ui/login-ui";
+import { userLoginSchema } from "../model/schema";
 import { useSigninUserMutation } from "../redux/api/auth-api";
 import { setToken, setUser } from "../redux/features/auth-slice";
 import { RegistrationFormInputs } from "../types";
 import { ROUTES } from "../utils/routes";
-
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email()
-      .required("The provided email address format is not valid"),
-    password: yup.string().required("Password is Required!"),
-  })
-  .required();
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,7 +21,7 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm<RegistrationFormInputs>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(userLoginSchema),
     defaultValues: {
       email: "",
       password: "",

@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Category from "../components/container/category/category";
+import Department from "../components/container/department/department";
+import Products from "../components/container/products/products";
 import Registration from "../components/container/registration";
 import { selectAuth } from "../redux/features/auth-slice";
 import { ROUTES } from "../utils/routes";
@@ -33,8 +35,10 @@ const AllPage = () => {
             <Homepage />
           </PrivateRoute>
         }>
+        <Route index element={<Products />} />
         <Route path={ROUTES.REGISTRATION} element={<Registration />} />
         <Route path={ROUTES.CATEGORY} element={<Category />} />
+        <Route path={ROUTES.DEPARTMENTS} element={<Department />} />
       </Route>
       <Route path={ROUTES.LOGIN} element={<Login />} />
     </Routes>

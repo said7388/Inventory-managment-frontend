@@ -1,8 +1,8 @@
-import { UpdateCategoryPops } from "../../../types";
+import { UpdateCategoryUIPops } from "../../../types";
 import Button from "../helper/button";
 import Input from "../helper/input";
 
-const UpdateCategoryUI: React.FC<UpdateCategoryPops> = ({
+const UpdateCategoryUI: React.FC<UpdateCategoryUIPops> = ({
   register,
   errors,
   handleSubmit,
