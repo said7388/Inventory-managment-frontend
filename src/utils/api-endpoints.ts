@@ -3,4 +3,6 @@ export const API_ENDPOINTS = {
   REGISTRATION: "/auth/local/register",
   CATEGORY: "/categories",
   DEPARTMENTS: "/departments",
+  PRODUCTS: "/products",
+  USER: "/users",
 };

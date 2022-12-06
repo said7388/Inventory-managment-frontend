@@ -1,6 +1,10 @@
 import { BsPersonPlusFill } from "react-icons/bs";
 import { FcDepartment } from "react-icons/fc";
-import { MdCategory, MdDashboard, MdOutlineLogout } from "react-icons/md";
+import {
+  MdCategory,
+  MdOutlineInventory2,
+  MdOutlineLogout,
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 import { SidebarUiPops } from "../../types";
 
@@ -15,8 +19,8 @@ const SidebarUI: React.FC<SidebarUiPops> = ({ handleLogout }) => {
             <Link
               to='/'
               className='flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 '>
-              <MdDashboard className='flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 ' />
-              <span className='flex-1 ml-3 whitespace-nowrap'>Dashboard</span>
+              <MdOutlineInventory2 className='flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 ' />
+              <span className='flex-1 ml-3 whitespace-nowrap'>Products</span>
             </Link>
           </li>
 

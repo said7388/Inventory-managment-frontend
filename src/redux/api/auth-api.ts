@@ -38,6 +38,10 @@ export const authApi = createApi({
         };
       },
     }),
+
+    getAllUser: builder.query({
+      query: () => `${API_ENDPOINTS.USER}?populate=%2A`,
+    }),
   }),
 });
 

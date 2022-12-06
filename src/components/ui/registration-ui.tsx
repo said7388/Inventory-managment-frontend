@@ -7,6 +7,7 @@ const RegistrationUI = ({
   errors,
   handleSubmit,
   handleOnSubmit,
+  departments,
 }: RegistrationUiPops) => {
   return (
     <div className=' flex items-center justify-center px-6 py-8 mx-auto md:h-full'>
@@ -67,6 +68,36 @@ const RegistrationUI = ({
             <p role='alert' className='text-red-500'>
               {errors["fullName"]?.message}
             </p>
+
+            <label
+              htmlFor='default'
+              className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
+              Department
+            </label>
+            <select
+              defaultValue={""}
+              className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              {...register("department", {
+                required: "Department is required",
+              })}
+              aria-invalid={errors.department ? "true" : "false"}>
+              <option value='' disabled>
+                Choose a department
+              </option>
+              {departments?.length > 0 &&
+                departments.map(
+                  (department: {
+                    id: number;
+                    attributes: {
+                      name: string;
+                    };
+                  }) => (
+                    <option key={department.id} value={department.id}>
+                      {department.attributes.name}
+                    </option>
+                  ),
+                )}
+            </select>
 
             <Input
               title='Password'
