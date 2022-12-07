@@ -2,6 +2,7 @@ import { Key } from "react";
 import { FiDelete, FiEdit } from "react-icons/fi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { ROUTES } from "../../../utils/routes";
 
 const DepartmentUI = ({
   departments,
@@ -10,7 +11,7 @@ const DepartmentUI = ({
   onClickEditDepartment,
 }: any) => {
   return (
-    <div className='p-5'>
+    <div>
       <div className='md:px-16'>
         <div className=' rounded-md border'>
           <table className='w-full table-fixed text-sm text-gray-500'>
@@ -43,7 +44,7 @@ const DepartmentUI = ({
                       <th
                         scope='row'
                         className='whitespace-nowrap py-4 px-6 text-left font-medium text-gray-900 '>
-                        <Link to={`/department/${department.id}`}>
+                        <Link to={`${ROUTES.DEPARTMENTS}/${department.id}`}>
                           {department?.attributes?.name}
                         </Link>
                       </th>

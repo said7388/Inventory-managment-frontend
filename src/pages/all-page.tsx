@@ -7,6 +7,7 @@ import Department from "../components/container/department/department";
 import SingleDepartment from "../components/container/department/single-department";
 import Products from "../components/container/products/products";
 import Registration from "../components/container/registration";
+import UserList from "../components/container/users/user-list";
 import { selectAuth } from "../redux/features/auth-slice";
 import { ROUTES } from "../utils/routes";
 import Homepage from "./homepage";
@@ -41,6 +42,7 @@ const AllPage = () => {
         <Route path={ROUTES.REGISTRATION} element={<Registration />} />
         <Route path={ROUTES.CATEGORY} element={<Category />} />
         <Route path={ROUTES.DEPARTMENTS} element={<Department />} />
+        <Route path={ROUTES.USERS} element={<UserList />} />
         <Route
           path={`${ROUTES.DEPARTMENTS}/:id`}
           element={<SingleDepartment />}

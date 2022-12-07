@@ -20,7 +20,7 @@ const ProductsTable = ({
 }) => {
   console.log(products);
   return (
-    <div className='overflow-x-auto relative shadow-md sm:rounded-lg m-2 md:m-8'>
+    <div className='overflow-x-auto relative shadow-md sm:rounded-lg'>
       {editable && (
         <div className='w-full flex justify-end mb-5'>
           <button

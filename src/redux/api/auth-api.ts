@@ -40,7 +40,7 @@ export const authApi = createApi({
     }),
 
     getAllUser: builder.query({
-      query: (option) => `${API_ENDPOINTS.USER + option}`,
+      query: (option) => `${API_ENDPOINTS.USER}?${option}`,
     }),
   }),
 });

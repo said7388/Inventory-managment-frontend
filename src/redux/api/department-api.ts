@@ -27,7 +27,7 @@ export const departmentApi = createApi({
 
     getSingleDepartment: builder.query({
       query: (id) =>
-        `${API_ENDPOINTS.DEPARTMENTS}/${id}?populate[products][populate]=%2A&populate[users]=%2A`,
+        `${API_ENDPOINTS.DEPARTMENTS}/${id}?populate[products][populate]=%2A&populate[users][populate]=%2A`,
       providesTags: ["Department"],
     }),
 

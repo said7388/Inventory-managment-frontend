@@ -14,7 +14,7 @@ const Modal: React.FC<ModalPops> = ({
           id='defaultModal'
           aria-hidden='true'
           className='fixed bg-gray-600 inset-0 z-50 flex justify-center items-center bg-opacity-[0.8] h-screen w-screen'>
-          <div className=' w-full  h-[70%] max-w-2xl'>
+          <div className=' w-full  h-[70%] max-w-2xl relative'>
             <div className=' h-full scrollbar-hide overflow-y-auto border bg-white rounded-lg shadow dark:bg-gray-700'>
               <div className='flex  items-start justify-between p-4 border-b rounded-t dark:border-gray-600'>
                 <h3 className='text-2xl bold text-gray-900 dark:text-white'>
@@ -23,7 +23,7 @@ const Modal: React.FC<ModalPops> = ({
                 <button
                   type='button'
                   onClick={closeModal}
-                  className='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white'
+                  className=' absolute -right-8 -top-8  bg-gray-100 text-red-500 rounded-full text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white'
                   data-modal-toggle='defaultModal'>
                   <RxCross2 className='w-5 h-5' />
                 </button>

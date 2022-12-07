@@ -51,3 +51,56 @@ export interface AuthState {
   profile: {} | null;
   token: string;
 }
+
+export interface UserData {
+  id: number;
+  fullName: string;
+
+  username: string;
+
+  employeeID: string;
+
+  email: string;
+
+  mobile_number: string;
+
+  department: {
+    id: number;
+    name: string;
+  };
+  role: {
+    name: string;
+  };
+  createdAt: Date;
+}
+
+export interface DepartmentListUser {
+  id: number;
+  attributes: {
+    fullName: string;
+
+    username: string;
+
+    employeeID: string;
+
+    email: string;
+
+    mobile_number: string;
+
+    department: {
+      data: {
+        attributes: {
+          name: string;
+        };
+      };
+    };
+    role: {
+      data: {
+        attributes: {
+          name: string;
+        };
+      };
+    };
+    createdAt: Date;
+  };
+}

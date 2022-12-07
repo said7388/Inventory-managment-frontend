@@ -11,7 +11,7 @@ const CategoryUI = ({
   onClickEditCategory,
 }: any) => {
   return (
-    <div className='p-5'>
+    <div>
       <div className='md:px-16'>
         <div className=' rounded-md border'>
           <table className='w-full table-fixed text-sm text-gray-500'>

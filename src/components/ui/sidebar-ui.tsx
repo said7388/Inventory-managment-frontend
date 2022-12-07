@@ -1,4 +1,5 @@
 import { BsPersonPlusFill } from "react-icons/bs";
+import { FaUsers } from "react-icons/fa";
 import { FcDepartment } from "react-icons/fc";
 import {
   MdCategory,
@@ -7,6 +8,7 @@ import {
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { SidebarUiPops } from "../../types";
+import { ROUTES } from "../../utils/routes";
 
 const SidebarUI: React.FC<SidebarUiPops> = ({ handleLogout }) => {
   return (
@@ -39,6 +41,15 @@ const SidebarUI: React.FC<SidebarUiPops> = ({ handleLogout }) => {
               className='flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 '>
               <FcDepartment className='flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 ' />
               <span className='flex-1 ml-3 whitespace-nowrap'>Department</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to={ROUTES.USERS}
+              className='flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 '>
+              <FaUsers className='flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 ' />
+              <span className='flex-1 ml-3 whitespace-nowrap'>All User</span>
             </Link>
           </li>
 

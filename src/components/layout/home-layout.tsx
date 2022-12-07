@@ -9,7 +9,7 @@ const HomeLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
       <div className='flex'>
         <Sidebar />
         <div className=' p4-1  md:w-[75%] xl:w-[80%] flex justify-center mt-16'>
-          <div className='w-full'>{children}</div>
+          <div className='w-full  p-3 md:p-8'>{children}</div>
         </div>
       </div>
     </>
