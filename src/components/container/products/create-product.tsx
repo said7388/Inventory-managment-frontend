@@ -5,6 +5,7 @@ import { useGetAllUserQuery } from "../../../redux/api/auth-api";
 import { useGetAllCategoryQuery } from "../../../redux/api/category-api";
 import { useGetAllDepartmentQuery } from "../../../redux/api/department-api";
 import { useCreateNewProductMutation } from "../../../redux/api/product-api";
+import { ProductFormInput } from "../../../types/product";
 import CreateProductUI from "../../ui/products/create-product-ui";
 
 const CreateProduct = ({ closeModal }: any) => {
@@ -23,24 +24,14 @@ const CreateProduct = ({ closeModal }: any) => {
   const [createNewProduct, { error, isError, isSuccess }] =
     useCreateNewProductMutation();
 
-  const createDepartmentFunction = (data: {
-    name: string;
-    product_code: string;
-    brand: string;
-    details: string;
-    purchasedAt: string;
-    vendor: string;
-    user: string;
-    department: string;
-    category: string;
-  }) => {
+  const createProductFunction = (data: ProductFormInput) => {
     const newData = {
       data: {
         name: data.name,
         product_code: data.product_code,
         brand: data.brand,
         details: data.details,
-        purchasedAt: data.purchasedAt,
+        purchasedAt: purchasedTime,
         vendor: data.vendor,
         usingBy: {
           id: data.user,
@@ -82,7 +73,7 @@ const CreateProduct = ({ closeModal }: any) => {
       handleSubmit={handleSubmit}
       purchasedTime={purchasedTime}
       setPurchasedTime={setPurchasedTime}
-      createDepartmentFunction={createDepartmentFunction}
+      createProductFunction={createProductFunction}
       register={register}
       errors={errors}
       departments={departments?.data}

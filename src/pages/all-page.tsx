@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Category from "../components/container/category/category";
+import SingleCategory from "../components/container/category/single-category";
 import Department from "../components/container/department/department";
+import SingleDepartment from "../components/container/department/single-department";
 import Products from "../components/container/products/products";
 import Registration from "../components/container/registration";
 import { selectAuth } from "../redux/features/auth-slice";
@@ -39,6 +41,11 @@ const AllPage = () => {
         <Route path={ROUTES.REGISTRATION} element={<Registration />} />
         <Route path={ROUTES.CATEGORY} element={<Category />} />
         <Route path={ROUTES.DEPARTMENTS} element={<Department />} />
+        <Route
+          path={`${ROUTES.DEPARTMENTS}/:id`}
+          element={<SingleDepartment />}
+        />
+        <Route path={`${ROUTES.CATEGORY}/:id`} element={<SingleCategory />} />
       </Route>
       <Route path={ROUTES.LOGIN} element={<Login />} />
     </Routes>

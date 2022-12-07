@@ -25,6 +25,12 @@ export const departmentApi = createApi({
       providesTags: ["Department"],
     }),
 
+    getSingleDepartment: builder.query({
+      query: (id) =>
+        `${API_ENDPOINTS.DEPARTMENTS}/${id}?populate[products][populate]=%2A&populate[users]=%2A`,
+      providesTags: ["Department"],
+    }),
+
     createNewDepartment: builder.mutation({
       query: (body: CreateDepartmtnBody) => {
         return {
@@ -63,4 +69,5 @@ export const {
   useGetAllDepartmentQuery,
   useDeleteDepartmentMutation,
   useUpdateDepartmentMutation,
+  useGetSingleDepartmentQuery,
 } = departmentApi;

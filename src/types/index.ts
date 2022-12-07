@@ -1,33 +1,5 @@
 import { InputHTMLAttributes } from "react";
 
-export interface CounterState {
-  value: number;
-  status: "idle" | "loading" | "failed";
-}
-
-export interface RegistrationFormInputs {
-  email: string;
-  employeeID: number;
-  mobileNumber: number;
-  fullName: string;
-  username: string;
-  password: string;
-  confirm: string;
-  department: string;
-}
-
-export interface CreateUserBody {
-  email: string;
-  employeeID: number;
-  mobileNumber: number;
-  fullName: string;
-  username: string;
-  password: string;
-  department: {
-    id: string;
-  };
-}
-
 export interface InputPops extends InputHTMLAttributes<HTMLInputElement> {
   register?: any;
   name: string;
@@ -41,26 +13,6 @@ export interface ButtonProps {
   [x: string]: any;
   title: any;
   size?: string | undefined;
-}
-
-export interface UserSignInBody {
-  identifier: string;
-  password: string;
-}
-
-export interface LoginUiPops {
-  register: any;
-  errors: any;
-  handleSubmit: Function;
-  handleOnSubmit: Function;
-}
-
-export interface RegistrationUiPops {
-  register: any;
-  errors: any;
-  handleSubmit: any;
-  handleOnSubmit: any;
-  departments: any;
 }
 
 export interface SidebarUiPops {
@@ -140,70 +92,4 @@ export interface ModalPops {
   isOpen?: boolean;
   title?: string;
   closeModal?: () => void;
-}
-
-export interface ProfilePayload {
-  email: string;
-  id: number;
-  username: string;
-}
-
-export interface AuthState {
-  profile: {} | null;
-  token: string;
-}
-
-export interface ProductType {
-  id: number;
-  attributes: {
-    name: string;
-    brand: string;
-    product_code: string;
-    vendor: string;
-    purchasedAt: string;
-    category: {
-      data: {
-        id: number;
-        attributes: {
-          name: string;
-        };
-      };
-    };
-    department: {
-      data: {
-        id: number;
-        attributes: {
-          name: string;
-        };
-      };
-    };
-    usingBy: {
-      data: {
-        id: number;
-        attributes: {
-          fullName: string;
-        };
-      };
-    };
-  };
-}
-
-export interface CreateProductBody {
-  data: {
-    name: string;
-    product_code: string;
-    brand: string;
-    details: string;
-    purchasedAt: string;
-    vendor: string;
-    usingBy: {
-      id: string;
-    };
-    department: {
-      id: string;
-    };
-    category: {
-      id: string;
-    };
-  };
 }

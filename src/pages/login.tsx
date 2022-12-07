@@ -8,7 +8,7 @@ import LoginUI from "../components/ui/login-ui";
 import { userLoginSchema } from "../model/schema";
 import { useSigninUserMutation } from "../redux/api/auth-api";
 import { setToken, setUser } from "../redux/features/auth-slice";
-import { RegistrationFormInputs } from "../types";
+import { RegistrationFormInputs } from "../types/user";
 import { ROUTES } from "../utils/routes";
 
 const Login = () => {

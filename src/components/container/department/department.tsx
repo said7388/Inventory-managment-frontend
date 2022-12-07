@@ -27,7 +27,7 @@ const Department = () => {
     deleteDepartment(id);
   };
 
-  const openEditModalFucntion = (data: any) => {
+  const onClickEditDepartment = (data: any) => {
     setUpdateModalOpen(true);
     const department = {
       id: data?.id,
@@ -59,7 +59,7 @@ const Department = () => {
     <>
       <DepartmentUI
         handleDeleteDepartment={handleDeleteDepartment}
-        openEditModalFucntion={openEditModalFucntion}
+        onClickEditDepartment={onClickEditDepartment}
         setModalOpen={setAddModalOpen}
         departments={data?.data}
       />

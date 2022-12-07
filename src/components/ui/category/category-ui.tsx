@@ -1,12 +1,14 @@
 import { Key } from "react";
 import { FiDelete, FiEdit } from "react-icons/fi";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../../utils/routes";
 
 const CategoryUI = ({
   categories,
   setModalOpen,
   handleDeleteCategory,
-  openEditModalFucntion,
+  onClickEditCategory,
 }: any) => {
   return (
     <div className='p-5'>
@@ -42,11 +44,13 @@ const CategoryUI = ({
                       <th
                         scope='row'
                         className='whitespace-nowrap py-4 px-6 text-left font-medium text-gray-900 '>
-                        {category?.attributes?.name}
+                        <Link to={`${ROUTES.CATEGORY}/${category.id}`}>
+                          {category?.attributes?.name}
+                        </Link>
                       </th>
                       <td className='  py-4 px-6 text-right'>
                         <button
-                          onClick={() => openEditModalFucntion(category)}
+                          onClick={() => onClickEditCategory(category)}
                           className='flex items-center ml-auto rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
                           <FiEdit className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
                           <span className='ml-3'>EDIT</span>

@@ -27,7 +27,7 @@ const Category = () => {
     deleteCategory(id);
   };
 
-  const openEditModalFucntion = (data: any) => {
+  const onClickEditCategory = (data: any) => {
     setUpdateModalOpen(true);
     const category = {
       id: data?.id,
@@ -59,7 +59,7 @@ const Category = () => {
     <>
       <CategoryUI
         handleDeleteCategory={handleDeleteCategory}
-        openEditModalFucntion={openEditModalFucntion}
+        onClickEditCategory={onClickEditCategory}
         setModalOpen={setAddModalOpen}
         categories={data?.data}
       />

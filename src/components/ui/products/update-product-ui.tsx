@@ -2,9 +2,9 @@ import DatePicker from "react-datepicker";
 import Button from "../helper/button";
 import Input from "../helper/input";
 
-const CreateProductUI = ({
+const UpdateProductUI = ({
   handleSubmit,
-  createProductFunction,
+  updateProductFunction,
   setPurchasedTime,
   register,
   purchasedTime,
@@ -14,7 +14,7 @@ const CreateProductUI = ({
   users,
 }: any) => {
   return (
-    <form onSubmit={handleSubmit(createProductFunction)}>
+    <form onSubmit={handleSubmit(updateProductFunction)}>
       <Input
         title='Product Name'
         name='name'
@@ -147,4 +147,4 @@ const CreateProductUI = ({
   );
 };
 
-export default CreateProductUI;
+export default UpdateProductUI;

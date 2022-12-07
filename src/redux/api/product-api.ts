@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CreateProductBody } from "../../types";
+import { CreateProductBody, UpdateProductBody } from "../../types/product";
 import { API_ENDPOINTS } from "../../utils/api-endpoints";
 import { RootState } from "../store";
 
@@ -36,6 +36,17 @@ export const productApi = createApi({
       invalidatesTags: ["Products"],
     }),
 
+    updateProduct: builder.mutation({
+      query: (param: UpdateProductBody) => {
+        return {
+          url: `${API_ENDPOINTS.PRODUCTS}/${param.id}`,
+          method: "put",
+          body: param.body,
+        };
+      },
+      invalidatesTags: ["Products"],
+    }),
+
     deleteProduct: builder.mutation({
       query: (id) => ({
         url: `${API_ENDPOINTS.PRODUCTS}/${id}`,
@@ -51,4 +62,5 @@ export const {
   useGetAllProductQuery,
   useDeleteProductMutation,
   useCreateNewProductMutation,
+  useUpdateProductMutation,
 } = productApi;

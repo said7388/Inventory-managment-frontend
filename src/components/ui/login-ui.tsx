@@ -1,4 +1,4 @@
-import { LoginUiPops } from "../../types";
+import { LoginUiPops } from "../../types/user";
 import Button from "./helper/button";
 import Input from "./helper/input";
 import Logo from "./helper/logo";

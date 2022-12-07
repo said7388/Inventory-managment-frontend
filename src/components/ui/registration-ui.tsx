@@ -1,4 +1,4 @@
-import { RegistrationUiPops } from "../../types";
+import { RegistrationUiPops } from "../../types/user";
 import Button from "./helper/button";
 import Input from "./helper/input";
 
