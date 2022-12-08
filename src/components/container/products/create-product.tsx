@@ -2,11 +2,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { createProductSchema } from "../../../model/schema";
 import { useGetAllUserQuery } from "../../../redux/api/auth-api";
 import { useGetAllCategoryQuery } from "../../../redux/api/category-api";
 import { useGetAllDepartmentQuery } from "../../../redux/api/department-api";
 import { useCreateNewProductMutation } from "../../../redux/api/product-api";
+import { createProductSchema } from "../../../schema";
 import { ProductFormInput } from "../../../types/product";
 import CreateProductUI from "../../ui/products/create-product-ui";
 

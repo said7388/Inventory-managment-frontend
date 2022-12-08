@@ -1,6 +1,7 @@
 import SingleProductUI from "../../ui/products/single-product-ui";
 
-const SingleProduct = () => {
+const SingleProduct = ({ currentProduct }: any) => {
+  console.log(currentProduct);
   return (
     <>
       <SingleProductUI />

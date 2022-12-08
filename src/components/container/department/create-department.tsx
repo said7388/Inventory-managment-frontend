@@ -2,8 +2,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { departmentFormSchema } from "../../../model/schema";
 import { useCreateNewDepartmentMutation } from "../../../redux/api/department-api";
+import { departmentFormSchema } from "../../../schema";
 import CreateDepartmentUI from "../../ui/department/create-department-ui";
 
 const CreateDepartment = ({ closeModal }: { closeModal: Function }) => {

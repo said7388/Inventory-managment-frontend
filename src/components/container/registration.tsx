@@ -2,9 +2,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { userRegisterSchema } from "../../model/schema";
 import { useCreateUserMutation } from "../../redux/api/auth-api";
 import { useGetAllDepartmentQuery } from "../../redux/api/department-api";
+import { userRegisterSchema } from "../../schema";
 import { RegistrationFormInputs } from "../../types/user";
 import RegistrationUI from "../ui/registration-ui";
 

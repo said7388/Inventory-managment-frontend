@@ -73,7 +73,7 @@ const Products = () => {
         title='Product Details'
         closeModal={closeModal}
         isOpen={viewModalOpen}>
-        <SingleProduct />
+        <SingleProduct currentProduct={currentProduct} />
       </Modal>
       <Modal
         title='Create new product'

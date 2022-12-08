@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoginUI from "../components/ui/login-ui";
-import { userLoginSchema } from "../model/schema";
 import { useSigninUserMutation } from "../redux/api/auth-api";
 import { setToken, setUser } from "../redux/features/auth-slice";
+import { userLoginSchema } from "../schema";
 import { RegistrationFormInputs } from "../types/user";
 import { ROUTES } from "../utils/routes";
 

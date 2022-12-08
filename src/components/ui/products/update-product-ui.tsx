@@ -141,7 +141,7 @@ const UpdateProductUI = ({
       </>
 
       <div className='my-8'>
-        <Button size='lg' title='Create Product' />
+        <Button size='lg' title='Update Product' />
       </div>
     </form>
   );

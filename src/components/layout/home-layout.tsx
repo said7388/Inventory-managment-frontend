@@ -1,6 +1,6 @@
 import * as React from "react";
-import Header from "../container/header";
 import Sidebar from "../container/sidebar";
+import Header from "../ui/header";
 
 const HomeLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (

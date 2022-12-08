@@ -3,8 +3,8 @@ import { TbMenu2 } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectUser } from "../../redux/features/auth-slice";
-import Button from "../ui/helper/button";
-import Logo from "../ui/helper/logo";
+import Button from "./helper/button";
+import Logo from "./helper/logo";
 
 const Header = () => {
   const user = useSelector(selectUser);
