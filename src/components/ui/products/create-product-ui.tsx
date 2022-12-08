@@ -62,9 +62,7 @@ const CreateProductUI = ({
         <select
           defaultValue={""}
           className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-          {...register("department", {
-            required: "Department is required",
-          })}
+          {...register("department")}
           aria-invalid={errors.department ? "true" : "false"}>
           <option value='' disabled>
             Choose a department
@@ -85,6 +83,10 @@ const CreateProductUI = ({
         </select>
       </>
 
+      <p role='alert' className='text-red-500'>
+        {errors["department"]?.message}
+      </p>
+
       <>
         <label className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
           Category
@@ -92,9 +94,7 @@ const CreateProductUI = ({
         <select
           defaultValue={""}
           className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-          {...register("category", {
-            required: "Category is required",
-          })}
+          {...register("category")}
           aria-invalid={errors.category ? "true" : "false"}>
           <option value='' disabled>
             Choose a category
@@ -115,6 +115,10 @@ const CreateProductUI = ({
         </select>
       </>
 
+      <p role='alert' className='text-red-500'>
+        {errors["category"]?.message}
+      </p>
+
       <>
         <label className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
           Using By
@@ -122,9 +126,7 @@ const CreateProductUI = ({
         <select
           defaultValue={""}
           className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-          {...register("user", {
-            required: "User is required",
-          })}
+          {...register("user")}
           aria-invalid={errors.user ? "true" : "false"}>
           <option value='' disabled>
             Choose a user
@@ -139,6 +141,10 @@ const CreateProductUI = ({
             )}
         </select>
       </>
+
+      <p role='alert' className='text-red-500'>
+        {errors["user"]?.message}
+      </p>
 
       <div className='my-8'>
         <Button size='lg' title='Create Product' />

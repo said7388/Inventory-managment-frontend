@@ -36,3 +36,14 @@ export const userLoginSchema = yup
     password: yup.string().required("Password is Required!"),
   })
   .required();
+
+export const createProductSchema = yup.object({
+  name: yup.string().required("Name name is Required!"),
+  product_code: yup.string(),
+  brand: yup.string(),
+  vendor: yup.string(),
+  details: yup.string(),
+  department: yup.string().required("Department is Required!"),
+  category: yup.string().required("Category is Required!"),
+  user: yup.string().required("User name is Required!"),
+});

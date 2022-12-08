@@ -1,4 +1,4 @@
-import { AiOutlineEdit } from "react-icons/ai";
+import { AiFillEye, AiOutlineEdit } from "react-icons/ai";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -8,12 +8,14 @@ import { ROUTES } from "../../../utils/routes";
 const ProductsTable = ({
   products,
   setAddModalOpen,
+  onClickViewProduct,
   handleDeleteProduct,
   onClickEditProduct,
   editable = true,
 }: {
   products: ProductType[];
   setAddModalOpen?: any;
+  onClickViewProduct?: any;
   handleDeleteProduct?: Function;
   onClickEditProduct?: Function;
   editable?: boolean;
@@ -58,11 +60,9 @@ const ProductsTable = ({
             <th scope='col' className='py-3 px-6'>
               Purchased At
             </th>
-            {editable && (
-              <th scope='col' className='py-3 px-6'>
-                Action
-              </th>
-            )}
+            <th scope='col' className='py-3 px-6'>
+              Action
+            </th>
           </tr>
         </thead>
         {products?.length > 0 &&
@@ -97,22 +97,28 @@ const ProductsTable = ({
                 <td className='py-4 px-6'>
                   {new Date(product.attributes?.purchasedAt).toDateString()}
                 </td>
-                {editable && (
-                  <td className='flex items-center py-4 px-6 space-x-3'>
-                    <button
-                      onClick={() =>
-                        onClickEditProduct && onClickEditProduct(product)
-                      }>
-                      <AiOutlineEdit className=' text-blue-600 dark:text-blue-500 w-6 h-6' />
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleDeleteProduct && handleDeleteProduct(product.id)
-                      }>
-                      <MdDelete className=' text-red-600 dark:text-red-500 w-6 h-6' />
-                    </button>
-                  </td>
-                )}
+
+                <td className='flex items-center py-4 px-6 space-x-2'>
+                  <button onClick={() => onClickViewProduct(product)}>
+                    <AiFillEye className=' text-gray-600 dark:text-gray-500 w-5 h-5' />
+                  </button>
+                  {editable && (
+                    <>
+                      <button
+                        onClick={() =>
+                          onClickEditProduct && onClickEditProduct(product)
+                        }>
+                        <AiOutlineEdit className=' text-blue-600 dark:text-blue-500 w-5 h-5' />
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleDeleteProduct && handleDeleteProduct(product.id)
+                        }>
+                        <MdDelete className=' text-red-600 dark:text-red-500 w-5 h-5' />
+                      </button>
+                    </>
+                  )}
+                </td>
               </tr>
             </tbody>
           ))}

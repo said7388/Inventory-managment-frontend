@@ -1,6 +1,8 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { createProductSchema } from "../../../model/schema";
 import { useGetAllUserQuery } from "../../../redux/api/auth-api";
 import { useGetAllCategoryQuery } from "../../../redux/api/category-api";
 import { useGetAllDepartmentQuery } from "../../../redux/api/department-api";
@@ -19,6 +21,7 @@ const UpdateProduct = ({ closeModal, currentProduct }: UpdateProductPops) => {
     reset,
     formState: { errors },
   } = useForm({
+    resolver: yupResolver(createProductSchema),
     defaultValues: {
       name: currentProduct?.attributes?.name,
       product_code: currentProduct?.attributes?.product_code,

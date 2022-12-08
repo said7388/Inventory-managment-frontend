@@ -8,10 +8,12 @@ import { ProductType } from "../../../types/product";
 import Modal from "../../ui/helper/modal";
 import ProductsTable from "../../ui/products/products-table";
 import CreateProduct from "./create-product";
+import SingleProduct from "./single-product";
 import UpdateProduct from "./update-product";
 
 const Products = () => {
   const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const [viewModalOpen, setViewModalOpen] = useState(false);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
 
@@ -21,6 +23,7 @@ const Products = () => {
 
   const closeModal = () => {
     setAddModalOpen(false);
+    setViewModalOpen(false);
     setUpdateModalOpen(false);
   };
 
@@ -30,6 +33,11 @@ const Products = () => {
 
   const onClickEditProduct = (product: ProductType) => {
     setUpdateModalOpen(true);
+    setCurrentProduct(product);
+  };
+
+  const onClickViewProduct = (product: ProductType) => {
+    setViewModalOpen(true);
     setCurrentProduct(product);
   };
 
@@ -58,8 +66,15 @@ const Products = () => {
         handleDeleteProduct={handleDeleteProduct}
         onClickEditProduct={onClickEditProduct}
         setAddModalOpen={setAddModalOpen}
+        onClickViewProduct={onClickViewProduct}
         products={data?.data}
       />
+      <Modal
+        title='Product Details'
+        closeModal={closeModal}
+        isOpen={viewModalOpen}>
+        <SingleProduct />
+      </Modal>
       <Modal
         title='Create new product'
         closeModal={closeModal}

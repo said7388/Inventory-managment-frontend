@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className='z-50 absolute top-0 w-full'>
       <nav className='bg-white shadow border-gray-200 px-4 lg:px-6 py-4 '>
-        <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
+        <div className='flex flex-wrap justify-between items-center max-w-screen-2xl 2xl:mx-auto '>
           <Logo />
           <div className='flex items-end'>
             {user?.username ? (

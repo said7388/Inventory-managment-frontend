@@ -1,6 +1,8 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { createProductSchema } from "../../../model/schema";
 import { useGetAllUserQuery } from "../../../redux/api/auth-api";
 import { useGetAllCategoryQuery } from "../../../redux/api/category-api";
 import { useGetAllDepartmentQuery } from "../../../redux/api/department-api";
@@ -14,7 +16,7 @@ const CreateProduct = ({ closeModal }: any) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(createProductSchema) });
   const [purchasedTime, setPurchasedTime] = useState(new Date());
 
   const { data: departments } = useGetAllDepartmentQuery([]);
