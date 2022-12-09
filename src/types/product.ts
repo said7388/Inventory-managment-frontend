@@ -91,3 +91,5 @@ export interface ProductFormInput {
   department: string;
   category: string;
 }
+
+export interface ProductInput extends ProductFormInput {}

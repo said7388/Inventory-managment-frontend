@@ -1,10 +1,12 @@
 import DatePicker from "react-datepicker";
+import { ROUTES } from "../../../utils/routes";
 import Button from "../helper/button";
 import Input from "../helper/input";
 
 const CreateProductUI = ({
   handleSubmit,
   createProductFunction,
+  onClictPlus,
   setPurchasedTime,
   register,
   purchasedTime,
@@ -54,11 +56,18 @@ const CreateProductUI = ({
       </div>
 
       <>
-        <label
-          htmlFor='default'
-          className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
-          Department
-        </label>
+        <div className='flex items-center gap-2'>
+          <label
+            htmlFor='default'
+            className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
+            Department
+          </label>
+          <button
+            className='text-xl mt-2 text-gray-500'
+            onClick={() => onClictPlus(`${ROUTES.DEPARTMENTS}/create`)}>
+            +
+          </button>
+        </div>
         <select
           defaultValue={""}
           className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
@@ -88,9 +97,16 @@ const CreateProductUI = ({
       </p>
 
       <>
-        <label className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
-          Category
-        </label>
+        <div className='flex items-center gap-2'>
+          <label className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
+            Category
+          </label>
+          <button
+            className='text-xl mt-2 text-gray-500'
+            onClick={() => onClictPlus(`${ROUTES.CATEGORY}/create`)}>
+            +
+          </button>
+        </div>
         <select
           defaultValue={""}
           className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '

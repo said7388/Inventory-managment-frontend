@@ -20,7 +20,6 @@ const ProductsTable = ({
   onClickEditProduct?: Function;
   editable?: boolean;
 }) => {
-  console.log(products);
   return (
     <div className='overflow-x-auto relative shadow-md sm:rounded-lg'>
       {editable && (

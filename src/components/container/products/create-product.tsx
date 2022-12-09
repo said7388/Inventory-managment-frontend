@@ -1,22 +1,44 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useGetAllUserQuery } from "../../../redux/api/auth-api";
 import { useGetAllCategoryQuery } from "../../../redux/api/category-api";
 import { useGetAllDepartmentQuery } from "../../../redux/api/department-api";
 import { useCreateNewProductMutation } from "../../../redux/api/product-api";
+import {
+  selectProductInput,
+  setProductInput,
+} from "../../../redux/features/product-slice";
 import { createProductSchema } from "../../../schema";
 import { ProductFormInput } from "../../../types/product";
 import CreateProductUI from "../../ui/products/create-product-ui";
 
 const CreateProduct = ({ closeModal }: any) => {
+  const productInput = useSelector(selectProductInput);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
-    reset,
+    getValues,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(createProductSchema) });
+  } = useForm({
+    resolver: yupResolver(createProductSchema),
+    defaultValues: {
+      brand: productInput.brand,
+      category: productInput.category,
+      department: productInput.department,
+      details: productInput.details,
+      name: productInput.name,
+      product_code: productInput.product_code,
+      user: productInput.user,
+      vendor: productInput.vendor,
+    },
+  });
   const [purchasedTime, setPurchasedTime] = useState(new Date());
 
   const { data: departments } = useGetAllDepartmentQuery([]);
@@ -25,6 +47,12 @@ const CreateProduct = ({ closeModal }: any) => {
 
   const [createNewProduct, { error, isError, isSuccess }] =
     useCreateNewProductMutation();
+
+  const onClictPlus = (link: string) => {
+    const values = getValues();
+    dispatch(setProductInput(values));
+    navigate(link);
+  };
 
   const createProductFunction = (data: ProductFormInput) => {
     const newData = {
@@ -66,10 +94,23 @@ const CreateProduct = ({ closeModal }: any) => {
         hideProgressBar: false,
         theme: "colored",
       });
+
+      dispatch(
+        setProductInput({
+          brand: "",
+          category: "",
+          department: "",
+          details: "",
+          name: "",
+          product_code: "",
+          user: "",
+          vendor: "",
+        }),
+      );
       closeModal();
-      reset();
     }
-  }, [closeModal, error, isError, isSuccess, reset]);
+  }, [closeModal, dispatch, error, isError, isSuccess]);
+
   return (
     <CreateProductUI
       handleSubmit={handleSubmit}
@@ -78,6 +119,7 @@ const CreateProduct = ({ closeModal }: any) => {
       createProductFunction={createProductFunction}
       register={register}
       errors={errors}
+      onClictPlus={onClictPlus}
       departments={departments?.data}
       categories={categories?.data}
       users={users}

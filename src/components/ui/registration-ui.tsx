@@ -11,7 +11,7 @@ const RegistrationUI = ({
 }: RegistrationUiPops) => {
   return (
     <div className=' flex items-center justify-center mx-auto md:h-full'>
-      <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-xl xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
+      <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-2xl xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
         <div className='p-4 space-y-4 md:space-y-6 sm:p-6'>
           <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white uppercase'>
             Create a new user

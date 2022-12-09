@@ -4,10 +4,12 @@ import { categoryApi } from "../api/category-api";
 import { departmentApi } from "../api/department-api";
 import { productApi } from "../api/product-api";
 import authReducer from "../features/auth-slice";
+import productReducer from "../features/product-slice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    product: productReducer,
     [authApi.reducerPath]: authApi.reducer,
     [categoryApi.reducerPath]: categoryApi.reducer,
     [departmentApi.reducerPath]: departmentApi.reducer,

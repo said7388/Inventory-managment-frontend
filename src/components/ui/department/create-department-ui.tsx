@@ -9,22 +9,27 @@ const CreateDepartmentUI: React.FC<CreateDepartmentPops> = ({
   createDepartmentFunction,
 }) => {
   return (
-    <form onSubmit={handleSubmit(createDepartmentFunction)}>
-      <Input
-        title='Department Name'
-        name='department'
-        register={register}
-        errors={errors}
-      />
+    <div className='sm:max-w-2xl mx-auto'>
+      <h2 className='text-2xl font-medium text-center mb-5'>
+        Create new Department
+      </h2>
+      <form onSubmit={handleSubmit(createDepartmentFunction)}>
+        <Input
+          title='Department Name'
+          name='department'
+          register={register}
+          errors={errors}
+        />
 
-      <p role='alert' className='text-red-500'>
-        {errors["department"]?.message}
-      </p>
+        <p role='alert' className='text-red-500'>
+          {errors["department"]?.message}
+        </p>
 
-      <div className='my-8'>
-        <Button size='lg' title='Create Department' />
-      </div>
-    </form>
+        <div className='my-8 w-full flex justify-end'>
+          <Button size='sm' title='Create Department' />
+        </div>
+      </form>
+    </div>
   );
 };
 

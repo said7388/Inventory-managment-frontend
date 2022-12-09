@@ -6,11 +6,9 @@ import {
 } from "../../../redux/api/department-api";
 import DepartmentUI from "../../ui/department/department-ui";
 import Modal from "../../ui/helper/modal";
-import CreateDepartment from "./create-department";
 import UpdateDepartment from "./update-department";
 
 const Department = () => {
-  const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
   const [currentDepartment, setCurrentDepartment] = useState({});
 
@@ -19,7 +17,6 @@ const Department = () => {
     useDeleteDepartmentMutation();
 
   const closeModal = () => {
-    setAddModalOpen(false);
     setUpdateModalOpen(false);
   };
 
@@ -60,15 +57,8 @@ const Department = () => {
       <DepartmentUI
         handleDeleteDepartment={handleDeleteDepartment}
         onClickEditDepartment={onClickEditDepartment}
-        setModalOpen={setAddModalOpen}
         departments={data?.data}
       />
-      <Modal
-        title='Create new department'
-        closeModal={closeModal}
-        isOpen={isAddModalOpen}>
-        <CreateDepartment closeModal={closeModal} />
-      </Modal>
       <Modal
         title='Update department'
         closeModal={closeModal}

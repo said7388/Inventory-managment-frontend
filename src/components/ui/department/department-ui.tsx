@@ -6,7 +6,6 @@ import { ROUTES } from "../../../utils/routes";
 
 const DepartmentUI = ({
   departments,
-  setModalOpen,
   handleDeleteDepartment,
   onClickEditDepartment,
 }: any) => {
@@ -22,12 +21,12 @@ const DepartmentUI = ({
                 </th>
                 <th scope='col' className='py-3 px-6'></th>
                 <th scope='col' className='flex justify-end py-3 px-6'>
-                  <button
-                    onClick={() => setModalOpen(true)}
+                  <Link
+                    to={`${ROUTES.DEPARTMENTS}/create`}
                     className='flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
                     <IoMdAddCircleOutline className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
                     <span className='ml-3'>Add New Department</span>
-                  </button>
+                  </Link>
                 </th>
               </tr>
             </thead>
