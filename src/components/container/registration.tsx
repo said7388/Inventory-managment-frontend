@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useCreateUserMutation } from "../../redux/api/auth-api";
 import { useGetAllDepartmentQuery } from "../../redux/api/department-api";
+import { useGetAllRoleQuery } from "../../redux/api/role-api";
 import { userRegisterSchema } from "../../schema";
 import { RegistrationFormInputs } from "../../types/user";
 import RegistrationUI from "../ui/registration-ui";
@@ -26,6 +27,7 @@ const Registration = () => {
   });
 
   const { data: departments } = useGetAllDepartmentQuery([]);
+  const { data: roles } = useGetAllRoleQuery([]);
 
   const [createUser, { error, isError, isSuccess }] = useCreateUserMutation();
 
@@ -38,6 +40,7 @@ const Registration = () => {
       mobileNumber: data.mobileNumber,
       password: data.password,
       department: data.department,
+      role: data.role,
     };
     createUser(newUser);
   };
@@ -71,6 +74,7 @@ const Registration = () => {
         handleSubmit={handleSubmit}
         handleOnSubmit={handleOnSubmit}
         departments={departments}
+        roles={roles}
       />
     </>
   );

@@ -3,6 +3,7 @@ import { authApi } from "../api/auth-api";
 import { categoryApi } from "../api/category-api";
 import { departmentApi } from "../api/department-api";
 import { productApi } from "../api/product-api";
+import { roleApi } from "../api/role-api";
 import authReducer from "../features/auth-slice";
 import productReducer from "../features/product-slice";
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     [categoryApi.reducerPath]: categoryApi.reducer,
     [departmentApi.reducerPath]: departmentApi.reducer,
     [productApi.reducerPath]: productApi.reducer,
+    [roleApi.reducerPath]: roleApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([
@@ -21,6 +23,7 @@ export const store = configureStore({
       categoryApi.middleware,
       departmentApi.middleware,
       productApi.middleware,
+      roleApi.middleware,
     ]),
 });
 

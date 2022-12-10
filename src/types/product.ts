@@ -1,50 +1,34 @@
 export interface ProductType {
   id: number;
-  attributes: {
+  name: string;
+  brand: string;
+  product_code: string;
+  vendor: string;
+  purchasedAt: string;
+  category: {
+    id: number;
     name: string;
-    brand: string;
-    product_code: string;
-    vendor: string;
-    purchasedAt: string;
-    category: {
-      data: {
-        id: number;
-        attributes: {
-          name: string;
-        };
-      };
-    };
-    department: {
-      data: {
-        id: number;
-        attributes: {
-          name: string;
-        };
-      };
-    };
-    usingBy: {
-      data: {
-        id: number;
-        attributes: {
-          fullName: string;
-        };
-      };
-    };
+  };
+  department: {
+    id: number;
+    name: string;
+  };
+  usingBy: {
+    id: number;
+    fullName: string;
   };
 }
 
 export interface CreateProductBody {
-  data: {
-    name: string;
-    product_code: string;
-    brand: string;
-    details: string;
-    purchasedAt: Date;
-    vendor: string;
-    usingBy: string;
-    department: string;
-    category: string;
-  };
+  name: string;
+  product_code: string;
+  brand: string;
+  details: string;
+  purchasedAt: Date;
+  vendor: string;
+  usingBy: string;
+  department: string;
+  category: string;
 }
 
 export interface UpdateProductBody {

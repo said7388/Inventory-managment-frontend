@@ -18,6 +18,7 @@ const Products = () => {
   const [currentProduct, setCurrentProduct] = useState({});
 
   const { data } = useGetAllProductQuery([]);
+
   const [deleteProduct, { error, isError, isSuccess }] =
     useDeleteProductMutation();
 
@@ -67,7 +68,7 @@ const Products = () => {
         onClickEditProduct={onClickEditProduct}
         setAddModalOpen={setAddModalOpen}
         onClickViewProduct={onClickViewProduct}
-        products={data?.data}
+        products={data}
       />
       <Modal
         title='Product Details'

@@ -13,6 +13,9 @@ const Department = () => {
   const [currentDepartment, setCurrentDepartment] = useState({});
 
   const { data } = useGetAllDepartmentQuery([]);
+
+  console.log(data);
+
   const [deleteDepartment, { error, isError, isSuccess }] =
     useDeleteDepartmentMutation();
 
@@ -57,7 +60,7 @@ const Department = () => {
       <DepartmentUI
         handleDeleteDepartment={handleDeleteDepartment}
         onClickEditDepartment={onClickEditDepartment}
-        departments={data?.data}
+        departments={data}
       />
       <Modal
         title='Update department'

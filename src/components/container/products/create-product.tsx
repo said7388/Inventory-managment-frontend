@@ -56,17 +56,15 @@ const CreateProduct = ({ closeModal }: any) => {
 
   const createProductFunction = (data: ProductFormInput) => {
     const newData = {
-      data: {
-        name: data.name,
-        product_code: data.product_code,
-        brand: data.brand,
-        details: data.details,
-        purchasedAt: purchasedTime,
-        vendor: data.vendor,
-        usingBy: data.user,
-        department: data.department,
-        category: data.category,
-      },
+      name: data.name,
+      product_code: data.product_code,
+      brand: data.brand,
+      details: data.details,
+      purchasedAt: purchasedTime,
+      vendor: data.vendor,
+      usingBy: data.user,
+      department: data.department,
+      category: data.category,
     };
 
     createNewProduct(newData);
@@ -114,8 +112,8 @@ const CreateProduct = ({ closeModal }: any) => {
       register={register}
       errors={errors}
       onClictPlus={onClictPlus}
-      departments={departments?.data}
-      categories={categories?.data}
+      departments={departments}
+      categories={categories}
       users={users}
     />
   );

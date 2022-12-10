@@ -8,6 +8,7 @@ const RegistrationUI = ({
   handleSubmit,
   handleOnSubmit,
   departments,
+  roles,
 }: RegistrationUiPops) => {
   return (
     <div className=' flex items-center justify-center mx-auto md:h-full'>
@@ -69,28 +70,63 @@ const RegistrationUI = ({
               {errors["fullName"]?.message}
             </p>
 
-            <label
-              htmlFor='default'
-              className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
-              Department
-            </label>
-            <select
-              defaultValue={""}
-              className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
-              {...register("department", {
-                required: "Department is required",
-              })}
-              aria-invalid={errors.department ? "true" : "false"}>
-              <option value='' disabled>
-                Choose a department
-              </option>
-              {departments?.length > 0 &&
-                departments.map((department: { id: number; name: string }) => (
-                  <option key={department.id} value={department.id}>
-                    {department.name}
-                  </option>
-                ))}
-            </select>
+            <>
+              <label
+                htmlFor='default'
+                className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
+                Department
+              </label>
+              <select
+                defaultValue={""}
+                className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+                {...register("department", {
+                  required: "Department is required",
+                })}
+                aria-invalid={errors.department ? "true" : "false"}>
+                <option value='' disabled>
+                  Choose a department
+                </option>
+                {departments?.length > 0 &&
+                  departments.map(
+                    (department: { id: number; name: string }) => (
+                      <option key={department.id} value={department.id}>
+                        {department.name}
+                      </option>
+                    ),
+                  )}
+              </select>
+            </>
+
+            <p role='alert' className='text-red-500'>
+              {errors["department"]?.message}
+            </p>
+
+            <>
+              <label className='block mb-2 mt-5 text-sm uppercase font-medium text-gray-900 '>
+                Role
+              </label>
+              <select
+                defaultValue={""}
+                className='bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+                {...register("role", {
+                  required: "Role is required",
+                })}
+                aria-invalid={errors.department ? "true" : "false"}>
+                <option value='' disabled>
+                  Choose a Role
+                </option>
+                {roles?.length > 0 &&
+                  roles.map((role: { id: number; name: string }) => (
+                    <option key={role.id} value={role.id}>
+                      {role.name}
+                    </option>
+                  ))}
+              </select>
+            </>
+
+            <p role='alert' className='text-red-500'>
+              {errors["role"]?.message}
+            </p>
 
             <Input
               title='Password'

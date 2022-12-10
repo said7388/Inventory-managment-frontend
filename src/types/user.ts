@@ -7,6 +7,7 @@ export interface RegistrationFormInputs {
   password: string;
   confirm: string;
   department: string;
+  role: string;
 }
 
 export interface CreateUserBody {
@@ -17,6 +18,7 @@ export interface CreateUserBody {
   username: string;
   password: string;
   department: string;
+  role: string;
 }
 
 export interface UserSignInBody {
@@ -37,6 +39,7 @@ export interface RegistrationUiPops {
   handleSubmit: any;
   handleOnSubmit: any;
   departments: any;
+  roles: any;
 }
 
 export interface ProfilePayload {
@@ -60,7 +63,7 @@ export interface UserData {
 
   email: string;
 
-  mobile_number: string;
+  mobileNumber: string;
 
   department: {
     id: number;

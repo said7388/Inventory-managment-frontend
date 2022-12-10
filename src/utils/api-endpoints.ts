@@ -4,5 +4,6 @@ export const API_ENDPOINTS = {
   CATEGORY: "/categories",
   DEPARTMENTS: "/departments",
   PRODUCTS: "/products",
-  USER: "/users",
+  USER: "/auth",
+  ROLE: "/role",
 };

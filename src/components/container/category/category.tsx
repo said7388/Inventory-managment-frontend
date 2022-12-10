@@ -57,7 +57,7 @@ const Category = () => {
       <CategoryUI
         handleDeleteCategory={handleDeleteCategory}
         onClickEditCategory={onClickEditCategory}
-        categories={data?.data}
+        categories={data}
       />
 
       <Modal

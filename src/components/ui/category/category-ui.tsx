@@ -32,40 +32,33 @@ const CategoryUI = ({
             </thead>
             <tbody>
               {categories?.length > 0 &&
-                categories?.map(
-                  (category: {
-                    id: Key;
-                    attributes: {
-                      name: string;
-                    };
-                  }) => (
-                    <tr key={category.id} className='border-b bg-white '>
-                      <th
-                        scope='row'
-                        className='whitespace-nowrap py-4 px-6 text-left font-medium text-gray-900 '>
-                        <Link to={`${ROUTES.CATEGORY}/${category.id}`}>
-                          {category?.attributes?.name}
-                        </Link>
-                      </th>
-                      <td className='  py-4 px-6 text-right'>
-                        <button
-                          onClick={() => onClickEditCategory(category)}
-                          className='flex items-center ml-auto rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
-                          <FiEdit className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
-                          <span className='ml-3'>EDIT</span>
-                        </button>
-                      </td>
-                      <td className=' py-4 px-6 text-right'>
-                        <button
-                          onClick={() => handleDeleteCategory(category.id)}
-                          className='flex ml-auto items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
-                          <FiDelete className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
-                          <span className='ml-3'>DELETE</span>
-                        </button>
-                      </td>
-                    </tr>
-                  ),
-                )}
+                categories?.map((category: { id: Key; name: string }) => (
+                  <tr key={category.id} className='border-b bg-white '>
+                    <th
+                      scope='row'
+                      className='whitespace-nowrap py-4 px-6 text-left font-medium text-gray-900 '>
+                      <Link to={`${ROUTES.CATEGORY}/${category.id}`}>
+                        {category?.name}
+                      </Link>
+                    </th>
+                    <td className='  py-4 px-6 text-right'>
+                      <button
+                        onClick={() => onClickEditCategory(category)}
+                        className='flex items-center ml-auto rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
+                        <FiEdit className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
+                        <span className='ml-3'>EDIT</span>
+                      </button>
+                    </td>
+                    <td className=' py-4 px-6 text-right'>
+                      <button
+                        onClick={() => handleDeleteCategory(category.id)}
+                        className='flex ml-auto items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100'>
+                        <FiDelete className='h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900' />
+                        <span className='ml-3'>DELETE</span>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

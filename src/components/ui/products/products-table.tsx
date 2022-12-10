@@ -71,30 +71,24 @@ const ProductsTable = ({
                 <th
                   scope='row'
                   className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
-                  {product.attributes?.name}
+                  {product?.name}
                 </th>
-                <td className='py-4 px-6'>{product.attributes?.brand}</td>
+                <td className='py-4 px-6'>{product?.brand}</td>
                 <td className='py-4 px-6'>
-                  <Link
-                    to={`${ROUTES.CATEGORY}/${product.attributes?.category?.data?.id}`}>
-                    {product.attributes?.category?.data?.attributes?.name}
+                  <Link to={`${ROUTES.CATEGORY}/${product?.category?.id}`}>
+                    {product?.category?.name}
                   </Link>
                 </td>
+                <td className='py-4 px-6'>{product?.product_code}</td>
+                <td className='py-4 px-6'>{product?.vendor}</td>
                 <td className='py-4 px-6'>
-                  {product.attributes?.product_code}
-                </td>
-                <td className='py-4 px-6'>{product.attributes?.vendor}</td>
-                <td className='py-4 px-6'>
-                  <Link
-                    to={`${ROUTES.DEPARTMENTS}/${product.attributes?.department?.data?.id}`}>
-                    {product.attributes?.department?.data?.attributes?.name}
+                  <Link to={`${ROUTES.DEPARTMENTS}/${product?.department?.id}`}>
+                    {product?.department?.name}
                   </Link>
                 </td>
+                <td className='py-4 px-6'>{product?.usingBy?.fullName}</td>
                 <td className='py-4 px-6'>
-                  {product.attributes?.usingBy?.data?.attributes?.fullName}
-                </td>
-                <td className='py-4 px-6'>
-                  {new Date(product.attributes?.purchasedAt).toDateString()}
+                  {new Date(product?.purchasedAt).toDateString()}
                 </td>
 
                 <td className='flex items-center py-4 px-6 space-x-2'>
