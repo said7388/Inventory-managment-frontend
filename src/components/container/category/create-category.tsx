@@ -1,12 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { categoryFormSchema } from "../../../model/schema";
 import { useCreateNewCategoryMutation } from "../../../redux/api/category-api";
+import { categoryFormSchema } from "../../../schema";
 import CreateCategoryUI from "../../ui/category/create-category-ui";
 
-const CreateCategory = ({ closeModal }: { closeModal: Function }) => {
+const CreateCategory = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -39,10 +41,10 @@ const CreateCategory = ({ closeModal }: { closeModal: Function }) => {
         hideProgressBar: false,
         theme: "colored",
       });
-      closeModal();
       reset();
+      navigate(-1);
     }
-  }, [closeModal, error, isError, isSuccess, reset]);
+  }, [error, isError, isSuccess, navigate, reset]);
 
   return (
     <CreateCategoryUI

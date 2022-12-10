@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Category from "../components/container/category/category";
+import CreateCategory from "../components/container/category/create-category";
+import SingleCategory from "../components/container/category/single-category";
+import CreateDepartment from "../components/container/department/create-department";
 import Department from "../components/container/department/department";
+import SingleDepartment from "../components/container/department/single-department";
 import Products from "../components/container/products/products";
 import Registration from "../components/container/registration";
+import UserList from "../components/container/users/user-list";
 import { selectAuth } from "../redux/features/auth-slice";
 import { ROUTES } from "../utils/routes";
 import Homepage from "./homepage";
@@ -38,7 +43,21 @@ const AllPage = () => {
         <Route index element={<Products />} />
         <Route path={ROUTES.REGISTRATION} element={<Registration />} />
         <Route path={ROUTES.CATEGORY} element={<Category />} />
+        <Route
+          path={`${ROUTES.CATEGORY}/create`}
+          element={<CreateCategory />}
+        />
         <Route path={ROUTES.DEPARTMENTS} element={<Department />} />
+        <Route
+          path={`${ROUTES.DEPARTMENTS}/create`}
+          element={<CreateDepartment />}
+        />
+        <Route path={ROUTES.USERS} element={<UserList />} />
+        <Route
+          path={`${ROUTES.DEPARTMENTS}/:id`}
+          element={<SingleDepartment />}
+        />
+        <Route path={`${ROUTES.CATEGORY}/:id`} element={<SingleCategory />} />
       </Route>
       <Route path={ROUTES.LOGIN} element={<Login />} />
     </Routes>

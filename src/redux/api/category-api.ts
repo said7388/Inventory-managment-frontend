@@ -24,6 +24,12 @@ export const categoryApi = createApi({
       providesTags: ["Category"],
     }),
 
+    getSingleCategory: builder.query({
+      query: (id) =>
+        `${API_ENDPOINTS.CATEGORY}/${id}?populate[products][populate]=%2A`,
+      providesTags: ["Category"],
+    }),
+
     createNewCategory: builder.mutation({
       query: (body: CreateCategoryBody) => {
         return {
@@ -62,4 +68,5 @@ export const {
   useCreateNewCategoryMutation,
   useDeleteCategoryMutation,
   useUpdateCategoryMutation,
+  useGetSingleCategoryQuery,
 } = categoryApi;

@@ -6,11 +6,9 @@ import {
 } from "../../../redux/api/category-api";
 import CategoryUI from "../../ui/category/category-ui";
 import Modal from "../../ui/helper/modal";
-import CreateCategory from "./create-category";
 import UpdateCategory from "./update-category";
 
 const Category = () => {
-  const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
   const [currentCategory, setCurrentCategory] = useState({});
 
@@ -19,7 +17,6 @@ const Category = () => {
     useDeleteCategoryMutation();
 
   const closeModal = () => {
-    setAddModalOpen(false);
     setUpdateModalOpen(false);
   };
 
@@ -27,7 +24,7 @@ const Category = () => {
     deleteCategory(id);
   };
 
-  const openEditModalFucntion = (data: any) => {
+  const onClickEditCategory = (data: any) => {
     setUpdateModalOpen(true);
     const category = {
       id: data?.id,
@@ -59,16 +56,10 @@ const Category = () => {
     <>
       <CategoryUI
         handleDeleteCategory={handleDeleteCategory}
-        openEditModalFucntion={openEditModalFucntion}
-        setModalOpen={setAddModalOpen}
-        categories={data}
+        onClickEditCategory={onClickEditCategory}
+        categories={data?.data}
       />
-      <Modal
-        title='Create new category'
-        closeModal={closeModal}
-        isOpen={isAddModalOpen}>
-        <CreateCategory closeModal={closeModal} />
-      </Modal>
+
       <Modal
         title='Update category'
         closeModal={closeModal}

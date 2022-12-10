@@ -1,12 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { departmentFormSchema } from "../../../model/schema";
 import { useCreateNewDepartmentMutation } from "../../../redux/api/department-api";
+import { departmentFormSchema } from "../../../schema";
 import CreateDepartmentUI from "../../ui/department/create-department-ui";
 
-const CreateDepartment = ({ closeModal }: { closeModal: Function }) => {
+const CreateDepartment = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -39,10 +41,10 @@ const CreateDepartment = ({ closeModal }: { closeModal: Function }) => {
         hideProgressBar: false,
         theme: "colored",
       });
-      closeModal();
       reset();
+      navigate(-1);
     }
-  }, [closeModal, error, isError, isSuccess, reset]);
+  }, [error, isError, isSuccess, navigate, reset]);
 
   return (
     <CreateDepartmentUI

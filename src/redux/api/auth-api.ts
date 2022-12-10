@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CreateUserBody, UserSignInBody } from "../../types";
+import { CreateUserBody, UserSignInBody } from "../../types/user";
 import { API_ENDPOINTS } from "../../utils/api-endpoints";
 import { RootState } from "../store";
 
@@ -40,7 +40,7 @@ export const authApi = createApi({
     }),
 
     getAllUser: builder.query({
-      query: (option) => `${API_ENDPOINTS.USER + option}`,
+      query: (option) => `${API_ENDPOINTS.USER}?${option}`,
     }),
   }),
 });
