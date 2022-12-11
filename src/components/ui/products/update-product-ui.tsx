@@ -70,18 +70,11 @@ const UpdateProductUI = ({
             Choose a department
           </option>
           {departments?.length > 0 &&
-            departments.map(
-              (department: {
-                id: number;
-                attributes: {
-                  name: string;
-                };
-              }) => (
-                <option key={department.id} value={department.id}>
-                  {department.attributes.name}
-                </option>
-              ),
-            )}
+            departments.map((department: { id: number; name: string }) => (
+              <option key={department.id} value={department.id}>
+                {department.name}
+              </option>
+            ))}
         </select>
       </>
 
@@ -100,18 +93,11 @@ const UpdateProductUI = ({
             Choose a category
           </option>
           {categories?.length > 0 &&
-            categories.map(
-              (category: {
-                id: number;
-                attributes: {
-                  name: string;
-                };
-              }) => (
-                <option key={category.id} value={category.id}>
-                  {category.attributes.name}
-                </option>
-              ),
-            )}
+            categories.map((category: { id: number; name: string }) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
         </select>
       </>
 

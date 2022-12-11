@@ -6,7 +6,7 @@ const SingleCategory = () => {
   let params = useParams();
   const { data } = useGetSingleCategoryQuery(params?.id);
 
-  return <SingleCategoryUI data={data?.data} />;
+  return <SingleCategoryUI data={data} />;
 };
 
 export default SingleCategory;

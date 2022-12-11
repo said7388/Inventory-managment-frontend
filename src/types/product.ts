@@ -34,23 +34,15 @@ export interface CreateProductBody {
 export interface UpdateProductBody {
   id: number;
   body: {
-    data: {
-      name: string;
-      product_code: string;
-      brand: string;
-      details: string;
-      purchasedAt: Date;
-      vendor: string;
-      usingBy: {
-        id: string;
-      };
-      department: {
-        id: string;
-      };
-      category: {
-        id: string;
-      };
-    };
+    name: string;
+    product_code: string;
+    brand: string;
+    details: string;
+    purchasedAt: Date;
+    vendor: string;
+    usingBy: string;
+    department: string;
+    category: string;
   };
 }
 

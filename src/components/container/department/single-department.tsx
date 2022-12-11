@@ -6,7 +6,7 @@ const SingleDepartment = () => {
   let params = useParams();
   const { data } = useGetSingleDepartmentQuery(params?.id);
 
-  return <SingleDepartmentUI data={data?.data} />;
+  return <SingleDepartmentUI data={data} />;
 };
 
 export default SingleDepartment;

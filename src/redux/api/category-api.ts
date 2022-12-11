@@ -25,8 +25,7 @@ export const categoryApi = createApi({
     }),
 
     getSingleCategory: builder.query({
-      query: (id) =>
-        `${API_ENDPOINTS.CATEGORY}/${id}?populate[products][populate]=%2A`,
+      query: (id) => `${API_ENDPOINTS.CATEGORY}/${id}`,
       providesTags: ["Category"],
     }),
 

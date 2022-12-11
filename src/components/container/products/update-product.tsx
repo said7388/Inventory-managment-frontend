@@ -11,8 +11,9 @@ import { ProductFormInput, UpdateProductPops } from "../../../types/product";
 import UpdateProductUI from "../../ui/products/update-product-ui";
 
 const UpdateProduct = ({ closeModal, currentProduct }: UpdateProductPops) => {
+  console.log(currentProduct);
   const [purchasedTime, setPurchasedTime] = useState(
-    new Date(currentProduct?.attributes?.purchasedAt),
+    new Date(currentProduct?.purchasedAt),
   );
 
   const {
@@ -23,14 +24,14 @@ const UpdateProduct = ({ closeModal, currentProduct }: UpdateProductPops) => {
   } = useForm({
     resolver: yupResolver(createProductSchema),
     defaultValues: {
-      name: currentProduct?.attributes?.name,
-      product_code: currentProduct?.attributes?.product_code,
-      brand: currentProduct?.attributes?.brand,
-      vendor: currentProduct?.attributes?.vendor,
-      details: currentProduct?.attributes?.details,
-      department: currentProduct?.attributes?.department?.data?.id,
-      category: currentProduct?.attributes?.category?.data?.id,
-      user: currentProduct?.attributes?.usingBy?.data?.id,
+      name: currentProduct?.name,
+      product_code: currentProduct?.product_code,
+      brand: currentProduct?.brand,
+      vendor: currentProduct?.vendor,
+      details: currentProduct?.details,
+      department: currentProduct?.department?.id,
+      category: currentProduct?.category?.id,
+      user: currentProduct?.usingBy?.id,
     },
   });
 
@@ -45,23 +46,15 @@ const UpdateProduct = ({ closeModal, currentProduct }: UpdateProductPops) => {
     updateProduct({
       id: currentProduct.id,
       body: {
-        data: {
-          name: data.name,
-          product_code: data.product_code,
-          brand: data.brand,
-          details: data.details,
-          purchasedAt: purchasedTime,
-          vendor: data.vendor,
-          usingBy: {
-            id: data.user,
-          },
-          department: {
-            id: data.department,
-          },
-          category: {
-            id: data.category,
-          },
-        },
+        name: data.name,
+        product_code: data.product_code,
+        brand: data.brand,
+        details: data.details,
+        purchasedAt: purchasedTime,
+        vendor: data.vendor,
+        usingBy: data.user,
+        department: data.department,
+        category: data.category,
       },
     });
   };
@@ -90,8 +83,8 @@ const UpdateProduct = ({ closeModal, currentProduct }: UpdateProductPops) => {
   return (
     <UpdateProductUI
       register={register}
-      departments={departments?.data}
-      categories={categories?.data}
+      departments={departments}
+      categories={categories}
       users={users}
       handleSubmit={handleSubmit}
       purchasedTime={purchasedTime}

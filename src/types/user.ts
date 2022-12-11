@@ -77,31 +77,21 @@ export interface UserData {
 
 export interface DepartmentListUser {
   id: number;
-  attributes: {
-    fullName: string;
+  fullName: string;
 
-    username: string;
+  username: string;
 
-    employeeID: string;
+  employeeID: string;
 
-    email: string;
+  email: string;
 
-    mobile_number: string;
+  mobileNumber: string;
 
-    department: {
-      data: {
-        attributes: {
-          name: string;
-        };
-      };
-    };
-    role: {
-      data: {
-        attributes: {
-          name: string;
-        };
-      };
-    };
-    createdAt: Date;
+  department: {
+    name: string;
   };
+  role: {
+    name: string;
+  };
+  createdAt: Date;
 }

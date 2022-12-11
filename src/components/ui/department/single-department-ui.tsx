@@ -2,15 +2,13 @@ import { DepartmentListUser } from "../../../types/user";
 import ProductsTable from "../products/products-table";
 
 const SingleDepartmentUI = ({ data }: any) => {
-  const products = data?.attributes?.products?.data;
-  const users = data?.attributes?.users?.data;
-
-  console.log(users);
+  const products = data?.products;
+  const users = data?.users;
 
   return (
     <div>
       <h1 className='text-center text-2xl mb-6 font-semibold uppercase'>
-        {data?.attributes?.name} Department
+        {data?.name} Department
       </h1>
 
       <h2 className='text-xl uppercase font-medium my-3'>Product List</h2>
@@ -52,21 +50,15 @@ const SingleDepartmentUI = ({ data }: any) => {
               {users.map((user: DepartmentListUser) => (
                 <tbody key={user.id}>
                   <tr className='bg-white border-b '>
-                    <td className='py-4 px-6'>{user.attributes.fullName}</td>
-                    <td className='py-4 px-6'>{user.attributes.username}</td>
-                    <td className='py-4 px-6'>{user.attributes.employeeID}</td>
-                    <td className='py-4 px-6'>{user.attributes.email}</td>
+                    <td className='py-4 px-6'>{user.fullName}</td>
+                    <td className='py-4 px-6'>{user.username}</td>
+                    <td className='py-4 px-6'>{user.employeeID}</td>
+                    <td className='py-4 px-6'>{user.email}</td>
+                    <td className='py-4 px-6'>{user.mobileNumber}</td>
+                    <td className='py-4 px-6'>{user?.department?.name}</td>
+                    <td className='py-4 px-6'>{user?.role?.name}</td>
                     <td className='py-4 px-6'>
-                      {user.attributes.mobile_number}
-                    </td>
-                    <td className='py-4 px-6'>
-                      {user.attributes.department.data.attributes.name}
-                    </td>
-                    <td className='py-4 px-6'>
-                      {user.attributes.role.data.attributes.name}
-                    </td>
-                    <td className='py-4 px-6'>
-                      {new Date(user.attributes.createdAt).toDateString()}
+                      {new Date(user.createdAt).toDateString()}
                     </td>
                   </tr>
                 </tbody>
