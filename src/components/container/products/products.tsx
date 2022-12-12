@@ -6,7 +6,7 @@ import {
 } from "../../../redux/api/product-api";
 import { ProductType } from "../../../types/product";
 import DailogBox from "../../ui/helper/dailog";
-import Modal from "../../ui/helper/modal";
+import ModalBox from "../../ui/helper/modal";
 import ProductsTable from "../../ui/products/products-table";
 import CreateProduct from "./create-product";
 import SingleProduct from "./single-product";
@@ -84,27 +84,30 @@ const Products = () => {
         onClickViewProduct={onClickViewProduct}
         products={data?.data}
       />
-      <Modal
+      <ModalBox
         title='Product Details'
+        width='50%'
         closeModal={closeModal}
         isOpen={viewModalOpen}>
         <SingleProduct currentProduct={currentProduct} />
-      </Modal>
-      <Modal
+      </ModalBox>
+      <ModalBox
         title='Create new product'
         closeModal={closeModal}
+        width='50%'
         isOpen={isAddModalOpen}>
         <CreateProduct closeModal={closeModal} />
-      </Modal>
-      <Modal
+      </ModalBox>
+      <ModalBox
         title='Update Product'
+        width='50%'
         closeModal={closeModal}
         isOpen={isUpdateModalOpen}>
         <UpdateProduct
           currentProduct={currentProduct}
           closeModal={closeModal}
         />
-      </Modal>
+      </ModalBox>
       <DailogBox
         open={openDialog}
         handleClose={handleCloseDialog}

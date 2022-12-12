@@ -92,4 +92,5 @@ export interface ModalPops {
   isOpen?: boolean;
   title?: string;
   closeModal?: () => void;
+  width?: string;
 }

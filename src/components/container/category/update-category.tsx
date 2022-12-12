@@ -38,6 +38,7 @@ const UpdateCategory = ({
   };
 
   useEffect(() => {
+    console.log("object");
     if (isError) {
       toast.error((error as any)?.data?.error?.message, {
         position: "top-right",

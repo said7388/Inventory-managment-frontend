@@ -6,7 +6,7 @@ import {
 } from "../../../redux/api/department-api";
 import DepartmentUI from "../../ui/department/department-ui";
 import DailogBox from "../../ui/helper/dailog";
-import Modal from "../../ui/helper/modal";
+import ModalBox from "../../ui/helper/modal";
 import UpdateDepartment from "./update-department";
 
 const Department = () => {
@@ -73,7 +73,7 @@ const Department = () => {
         onClickEditDepartment={onClickEditDepartment}
         departments={data?.data}
       />
-      <Modal
+      <ModalBox
         title='Update department'
         closeModal={closeModal}
         isOpen={isUpdateModalOpen}>
@@ -81,7 +81,7 @@ const Department = () => {
           currentDepartment={currentDepartment}
           closeModal={closeModal}
         />
-      </Modal>
+      </ModalBox>
       <DailogBox
         open={openDialog}
         handleClose={handleCloseDialog}

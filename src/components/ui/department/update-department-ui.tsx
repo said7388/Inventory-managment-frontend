@@ -21,8 +21,8 @@ const UpdateDepartmentUI: React.FC<UpdateDepartmentUIPops> = ({
         {errors["department"]?.message}
       </p>
 
-      <div className='my-8'>
-        <Button size='lg' title='Update Department' />
+      <div className='my-8 w-full flex justify-center'>
+        <Button size='sm' title='Update Department' />
       </div>
     </form>
   );

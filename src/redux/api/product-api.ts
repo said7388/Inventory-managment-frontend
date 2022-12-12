@@ -25,6 +25,11 @@ export const productApi = createApi({
       providesTags: ["Products"],
     }),
 
+    getSingleProduct: builder.query({
+      query: (id) => `${API_ENDPOINTS.PRODUCTS}/${id}?populate=%2A`,
+      providesTags: ["Products"],
+    }),
+
     createNewProduct: builder.mutation({
       query: (body: CreateProductBody) => {
         return {
@@ -63,4 +68,5 @@ export const {
   useDeleteProductMutation,
   useCreateNewProductMutation,
   useUpdateProductMutation,
+  useGetSingleProductQuery,
 } = productApi;

@@ -6,7 +6,7 @@ import {
 } from "../../../redux/api/category-api";
 import CategoryUI from "../../ui/category/category-ui";
 import DailogBox from "../../ui/helper/dailog";
-import Modal from "../../ui/helper/modal";
+import ModalBox from "../../ui/helper/modal";
 import UpdateCategory from "./update-category";
 
 const Category = () => {
@@ -76,7 +76,7 @@ const Category = () => {
         categories={data?.data}
       />
 
-      <Modal
+      <ModalBox
         title='Update category'
         closeModal={closeModal}
         isOpen={isUpdateModalOpen}>
@@ -84,7 +84,7 @@ const Category = () => {
           currentCategory={currentCategory}
           closeModal={closeModal}
         />
-      </Modal>
+      </ModalBox>
 
       <DailogBox
         open={openDialog}
