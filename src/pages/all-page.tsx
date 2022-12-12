@@ -10,7 +10,6 @@ import SingleDepartment from "../components/container/department/single-departme
 import Products from "../components/container/products/products";
 import Registration from "../components/container/registration";
 import UserList from "../components/container/users/user-list";
-import Dashboard from "../components/layout/dashboard";
 import { selectAuth } from "../redux/features/auth-slice";
 import { ROUTES } from "../utils/routes";
 import Homepage from "./homepage";
@@ -61,7 +60,6 @@ const AllPage = () => {
         <Route path={`${ROUTES.CATEGORY}/:id`} element={<SingleCategory />} />
       </Route>
       <Route path={ROUTES.LOGIN} element={<Login />} />
-      <Route path='dashboard' element={<Dashboard />} />
     </Routes>
   );
 };

@@ -9,14 +9,14 @@ const ProductsTable = ({
   products,
   setAddModalOpen,
   onClickViewProduct,
-  handleDeleteProduct,
+  handleClickOpenDialog,
   onClickEditProduct,
   editable = true,
 }: {
   products: ProductType[];
   setAddModalOpen?: any;
   onClickViewProduct?: any;
-  handleDeleteProduct?: Function;
+  handleClickOpenDialog?: Function;
   onClickEditProduct?: Function;
   editable?: boolean;
 }) => {
@@ -111,7 +111,8 @@ const ProductsTable = ({
                       </button>
                       <button
                         onClick={() =>
-                          handleDeleteProduct && handleDeleteProduct(product.id)
+                          handleClickOpenDialog &&
+                          handleClickOpenDialog(product.id)
                         }>
                         <MdDelete className=' text-red-600 dark:text-red-500 w-5 h-5' />
                       </button>

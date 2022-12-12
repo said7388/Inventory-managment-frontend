@@ -5,6 +5,7 @@ import {
   useGetAllProductQuery,
 } from "../../../redux/api/product-api";
 import { ProductType } from "../../../types/product";
+import DailogBox from "../../ui/helper/dailog";
 import Modal from "../../ui/helper/modal";
 import ProductsTable from "../../ui/products/products-table";
 import CreateProduct from "./create-product";
@@ -16,10 +17,21 @@ const Products = () => {
   const [viewModalOpen, setViewModalOpen] = useState(false);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
+  const [deleteID, setDeleteID] = useState(0);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const { data } = useGetAllProductQuery([]);
   const [deleteProduct, { error, isError, isSuccess }] =
     useDeleteProductMutation();
+
+  const handleClickOpenDialog = (id: number) => {
+    setOpenDialog(true);
+    setDeleteID(id);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   const closeModal = () => {
     setAddModalOpen(false);
@@ -27,8 +39,10 @@ const Products = () => {
     setUpdateModalOpen(false);
   };
 
-  const handleDeleteProduct = (id: number) => {
-    deleteProduct(id);
+  const handleDeleteProduct = () => {
+    if (deleteID) {
+      deleteProduct(deleteID);
+    }
   };
 
   const onClickEditProduct = (product: ProductType) => {
@@ -57,13 +71,14 @@ const Products = () => {
         hideProgressBar: false,
         theme: "colored",
       });
+      setOpenDialog(false);
     }
   }, [error, isError, isSuccess]);
 
   return (
     <>
       <ProductsTable
-        handleDeleteProduct={handleDeleteProduct}
+        handleClickOpenDialog={handleClickOpenDialog}
         onClickEditProduct={onClickEditProduct}
         setAddModalOpen={setAddModalOpen}
         onClickViewProduct={onClickViewProduct}
@@ -90,6 +105,13 @@ const Products = () => {
           closeModal={closeModal}
         />
       </Modal>
+      <DailogBox
+        open={openDialog}
+        handleClose={handleCloseDialog}
+        handleSuccess={handleDeleteProduct}
+        message='Are you sure you want to delete this product ?'
+        buttonTitle='Delete'
+      />
     </>
   );
 };

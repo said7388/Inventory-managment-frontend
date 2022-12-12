@@ -5,7 +5,6 @@ const UserList = () => {
   const { data } = useGetAllUserQuery(
     "populate[0]=role&populate[1]=department",
   );
-  console.log(data);
 
   return (
     <>
