@@ -5,12 +5,25 @@ import {
   useGetAllCategoryQuery,
 } from "../../../redux/api/category-api";
 import CategoryUI from "../../ui/category/category-ui";
-import Modal from "../../ui/helper/modal";
+import DailogBox from "../../ui/helper/dailog";
+import ModalBox from "../../ui/helper/modal";
 import UpdateCategory from "./update-category";
 
 const Category = () => {
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
+  const [deleteID, setDeleteID] = useState(0);
   const [currentCategory, setCurrentCategory] = useState({});
+
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpenDialog = (id: number) => {
+    setOpenDialog(true);
+    setDeleteID(id);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   const { data } = useGetAllCategoryQuery([]);
   const [deleteCategory, { error, isError, isSuccess }] =
@@ -20,8 +33,10 @@ const Category = () => {
     setUpdateModalOpen(false);
   };
 
-  const handleDeleteCategory = (id: number) => {
-    deleteCategory(id);
+  const handleDeleteCategory = () => {
+    if (deleteID) {
+      deleteCategory(deleteID);
+    }
   };
 
   const onClickEditCategory = (data: any) => {
@@ -49,18 +64,19 @@ const Category = () => {
         hideProgressBar: false,
         theme: "colored",
       });
+      setOpenDialog(false);
     }
   }, [error, isError, isSuccess]);
 
   return (
     <>
       <CategoryUI
-        handleDeleteCategory={handleDeleteCategory}
+        handleClickOpen={handleClickOpenDialog}
         onClickEditCategory={onClickEditCategory}
         categories={data}
       />
 
-      <Modal
+      <ModalBox
         title='Update category'
         closeModal={closeModal}
         isOpen={isUpdateModalOpen}>
@@ -68,7 +84,15 @@ const Category = () => {
           currentCategory={currentCategory}
           closeModal={closeModal}
         />
-      </Modal>
+      </ModalBox>
+
+      <DailogBox
+        open={openDialog}
+        handleClose={handleCloseDialog}
+        handleSuccess={handleDeleteCategory}
+        message='Are you sure you want to delete this category ?'
+        buttonTitle='Delete'
+      />
     </>
   );
 };

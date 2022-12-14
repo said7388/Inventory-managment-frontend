@@ -5,12 +5,15 @@ import {
   useGetAllDepartmentQuery,
 } from "../../../redux/api/department-api";
 import DepartmentUI from "../../ui/department/department-ui";
-import Modal from "../../ui/helper/modal";
+import DailogBox from "../../ui/helper/dailog";
+import ModalBox from "../../ui/helper/modal";
 import UpdateDepartment from "./update-department";
 
 const Department = () => {
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
   const [currentDepartment, setCurrentDepartment] = useState({});
+  const [deleteID, setDeleteID] = useState(0);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const { data } = useGetAllDepartmentQuery([]);
 
@@ -18,13 +21,23 @@ const Department = () => {
 
   const [deleteDepartment, { error, isError, isSuccess }] =
     useDeleteDepartmentMutation();
+  const handleClickOpenDialog = (id: number) => {
+    setOpenDialog(true);
+    setDeleteID(id);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   const closeModal = () => {
     setUpdateModalOpen(false);
   };
 
-  const handleDeleteDepartment = (id: number) => {
-    deleteDepartment(id);
+  const handleDeleteDepartment = () => {
+    if (deleteID) {
+      deleteDepartment(deleteID);
+    }
   };
 
   const onClickEditDepartment = (data: any) => {
@@ -52,17 +65,18 @@ const Department = () => {
         hideProgressBar: false,
         theme: "colored",
       });
+      setOpenDialog(false);
     }
   }, [error, isError, isSuccess]);
 
   return (
     <>
       <DepartmentUI
-        handleDeleteDepartment={handleDeleteDepartment}
+        handleClickOpenDialog={handleClickOpenDialog}
         onClickEditDepartment={onClickEditDepartment}
         departments={data}
       />
-      <Modal
+      <ModalBox
         title='Update department'
         closeModal={closeModal}
         isOpen={isUpdateModalOpen}>
@@ -70,7 +84,14 @@ const Department = () => {
           currentDepartment={currentDepartment}
           closeModal={closeModal}
         />
-      </Modal>
+      </ModalBox>
+      <DailogBox
+        open={openDialog}
+        handleClose={handleCloseDialog}
+        handleSuccess={handleDeleteDepartment}
+        message='Are you sure you want to delete this department ?'
+        buttonTitle='Delete'
+      />
     </>
   );
 };

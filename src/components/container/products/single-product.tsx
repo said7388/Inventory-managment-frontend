@@ -1,10 +1,12 @@
+import { useGetSingleProductQuery } from "../../../redux/api/product-api";
 import SingleProductUI from "../../ui/products/single-product-ui";
 
 const SingleProduct = ({ currentProduct }: any) => {
-  console.log(currentProduct);
+  const { data } = useGetSingleProductQuery(currentProduct.id);
+
   return (
     <>
-      <SingleProductUI />
+      <SingleProductUI product={data?.data} />
     </>
   );
 };

@@ -44,11 +44,11 @@ const UserListUI = ({ users }: any) => {
                 <td className='py-4 px-6'>{user.email}</td>
                 <td className='py-4 px-6'>{user.mobileNumber}</td>
                 <td className='py-4 px-6'>
-                  <Link to={`${ROUTES.DEPARTMENTS}/${user.department?.id}`}>
-                    {user.department?.name}
+                  <Link to={`${ROUTES.DEPARTMENTS}/${user.department.id}`}>
+                    {user.department.name}
                   </Link>
                 </td>
-                <td className='py-4 px-6'>{user.role?.name}</td>
+                <td className='py-4 px-6'>{user.role.name}</td>
                 <td className='py-4 px-6'>
                   {new Date(user.createdAt).toDateString()}
                 </td>

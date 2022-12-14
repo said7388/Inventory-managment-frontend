@@ -1,18 +1,33 @@
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
 import * as React from "react";
-import Sidebar from "../container/sidebar";
-import Header from "../ui/header";
+import DrawerHeader from "../container/drawer-header";
+import Header from "../container/header";
+import Sider from "../container/sider";
 
 const HomeLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+  const [open, setOpen] = React.useState(true);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <>
-      <Header />
-      <div className='flex'>
-        <Sidebar />
-        <div className=' p4-1  md:w-[75%] xl:w-[80%] flex justify-center mt-16'>
-          <div className='w-full  p-3 md:p-8'>{children}</div>
-        </div>
-      </div>
-    </>
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <Header handleDrawerOpen={handleDrawerOpen} open={open} />
+
+      <Sider open={open} handleDrawerClose={handleDrawerClose} />
+
+      <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
+        <DrawerHeader />
+        {children}
+      </Box>
+    </Box>
   );
 };
 
