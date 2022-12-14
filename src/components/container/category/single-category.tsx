@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetSingleCategoryQuery } from "../../../redux/api/category-api";
-import SingleCategoryUI from "../../ui/category/single-category-ui";
+import SingleCategoryUI from "../../core-ui/category/single-category-ui";
 
 const SingleCategory = () => {
   let params = useParams();

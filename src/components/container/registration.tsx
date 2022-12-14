@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 import { useCreateUserMutation } from "../../redux/api/auth-api";
 import { useGetAllDepartmentQuery } from "../../redux/api/department-api";
 import { useGetAllRoleQuery } from "../../redux/api/role-api";
-import { userRegisterSchema } from "../../schema";
 import { RegistrationFormInputs } from "../../types/user";
-import RegistrationUI from "../ui/registration-ui";
+import { userRegisterSchema } from "../../validator/schema";
+import RegistrationUI from "../core-ui/registration-ui";
 
 const Registration = () => {
   const {

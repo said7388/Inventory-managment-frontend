@@ -4,9 +4,9 @@ import {
   useDeleteCategoryMutation,
   useGetAllCategoryQuery,
 } from "../../../redux/api/category-api";
-import CategoryUI from "../../ui/category/category-ui";
-import DailogBox from "../../ui/helper/dailog";
-import ModalBox from "../../ui/helper/modal";
+import CategoryUI from "../../core-ui/category/category-ui";
+import DailogBox from "../../core-ui/helper/dailog";
+import ModalBox from "../../core-ui/helper/modal";
 import UpdateCategory from "./update-category";
 
 const Category = () => {

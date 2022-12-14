@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import LoginUI from "../components/ui/login-ui";
+import LoginUI from "../components/core-ui/login-ui";
 import { useSigninUserMutation } from "../redux/api/auth-api";
 import { setToken, setUser } from "../redux/features/auth-slice";
-import { userLoginSchema } from "../schema";
 import { RegistrationFormInputs } from "../types/user";
 import { ROUTES } from "../utils/routes";
+import { userLoginSchema } from "../validator/schema";
 
 const Login = () => {
   const navigate = useNavigate();

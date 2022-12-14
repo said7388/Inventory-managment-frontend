@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useUpdateDepartmentMutation } from "../../../redux/api/department-api";
-import { departmentFormSchema } from "../../../schema";
 import { UpdateDepartmentPops } from "../../../types";
-import UpdateDepartmentUI from "../../ui/department/update-department-ui";
+import { departmentFormSchema } from "../../../validator/schema";
+import UpdateDepartmentUI from "../../core-ui/department/update-department-ui";
 
 const UpdateDepartment = ({
   closeModal,

@@ -12,9 +12,9 @@ import {
   selectProductInput,
   setProductInput,
 } from "../../../redux/features/product-slice";
-import { createProductSchema } from "../../../schema";
 import { ProductFormInput } from "../../../types/product";
-import CreateProductUI from "../../ui/products/create-product-ui";
+import { createProductSchema } from "../../../validator/schema";
+import CreateProductUI from "../../core-ui/products/create-product-ui";
 
 const CreateProduct = ({ closeModal }: any) => {
   const productInput = useSelector(selectProductInput);

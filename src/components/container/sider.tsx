@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { defaultState } from "../../redux/features/auth-slice";
 import { ROUTES } from "../../utils/routes";
 import { sidebarList } from "../../utils/sidebar-list";
-import Logo from "../ui/helper/logo";
+import Logo from "../core-ui/helper/logo";
 import DrawerHeader from "./drawer-header";
 
 const drawerWidth = 240;

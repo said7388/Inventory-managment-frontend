@@ -5,9 +5,9 @@ import {
   useGetAllProductQuery,
 } from "../../../redux/api/product-api";
 import { ProductType } from "../../../types/product";
-import DailogBox from "../../ui/helper/dailog";
-import ModalBox from "../../ui/helper/modal";
-import ProductsTable from "../../ui/products/products-table";
+import DailogBox from "../../core-ui/helper/dailog";
+import ModalBox from "../../core-ui/helper/modal";
+import ProductsTable from "../../core-ui/products/products-table";
 import CreateProduct from "./create-product";
 import SingleProduct from "./single-product";
 import UpdateProduct from "./update-product";

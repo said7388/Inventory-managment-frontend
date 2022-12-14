@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetSingleDepartmentQuery } from "../../../redux/api/department-api";
-import SingleDepartmentUI from "../../ui/department/single-department-ui";
+import SingleDepartmentUI from "../../core-ui/department/single-department-ui";
 
 const SingleDepartment = () => {
   let params = useParams();

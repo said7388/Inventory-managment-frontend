@@ -6,9 +6,9 @@ import { useGetAllUserQuery } from "../../../redux/api/auth-api";
 import { useGetAllCategoryQuery } from "../../../redux/api/category-api";
 import { useGetAllDepartmentQuery } from "../../../redux/api/department-api";
 import { useUpdateProductMutation } from "../../../redux/api/product-api";
-import { createProductSchema } from "../../../schema";
 import { ProductFormInput, UpdateProductPops } from "../../../types/product";
-import UpdateProductUI from "../../ui/products/update-product-ui";
+import { createProductSchema } from "../../../validator/schema";
+import UpdateProductUI from "../../core-ui/products/update-product-ui";
 
 const UpdateProduct = ({ closeModal, currentProduct }: UpdateProductPops) => {
   console.log(currentProduct);

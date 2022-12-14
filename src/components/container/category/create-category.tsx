@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCreateNewCategoryMutation } from "../../../redux/api/category-api";
-import { categoryFormSchema } from "../../../schema";
-import CreateCategoryUI from "../../ui/category/create-category-ui";
+import { categoryFormSchema } from "../../../validator/schema";
+import CreateCategoryUI from "../../core-ui/category/create-category-ui";
 
 const CreateCategory = () => {
   const navigate = useNavigate();

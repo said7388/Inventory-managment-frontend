@@ -4,9 +4,9 @@ import {
   useDeleteDepartmentMutation,
   useGetAllDepartmentQuery,
 } from "../../../redux/api/department-api";
-import DepartmentUI from "../../ui/department/department-ui";
-import DailogBox from "../../ui/helper/dailog";
-import ModalBox from "../../ui/helper/modal";
+import DepartmentUI from "../../core-ui/department/department-ui";
+import DailogBox from "../../core-ui/helper/dailog";
+import ModalBox from "../../core-ui/helper/modal";
 import UpdateDepartment from "./update-department";
 
 const Department = () => {

@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useUpdateCategoryMutation } from "../../../redux/api/category-api";
-import { categoryFormSchema } from "../../../schema";
 import { UpdateCategoryPops } from "../../../types";
-import UpdateCategoryUI from "../../ui/category/update-category-ui";
+import { categoryFormSchema } from "../../../validator/schema";
+import UpdateCategoryUI from "../../core-ui/category/update-category-ui";
 
 const UpdateCategory = ({
   closeModal,

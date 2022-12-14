@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCreateNewDepartmentMutation } from "../../../redux/api/department-api";
-import { departmentFormSchema } from "../../../schema";
-import CreateDepartmentUI from "../../ui/department/create-department-ui";
+import { departmentFormSchema } from "../../../validator/schema";
+import CreateDepartmentUI from "../../core-ui/department/create-department-ui";
 
 const CreateDepartment = () => {
   const navigate = useNavigate();

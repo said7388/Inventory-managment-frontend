@@ -3,7 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import { styled, Theme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import { HiMenu } from "react-icons/hi";
-import Logo from "../ui/helper/logo";
+import Logo from "../core-ui/helper/logo";
 
 const drawerWidth = 240;
 
